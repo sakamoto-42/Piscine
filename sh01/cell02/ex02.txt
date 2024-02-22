@@ -29,7 +29,7 @@ find . -type f -name "*.sh" -exec basename {} .sh \;	// on cherche à partir du 
 							//	      file3
 vim find_sh.sh
 i
-#!/bin/sh	// ou #!/bin/bash
+#!/bin/sh	
 enter
 find . -type f -name "*.sh" -exec basename {} .sh \;
 echap			
