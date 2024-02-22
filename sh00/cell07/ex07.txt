@@ -1,3 +1,5 @@
+A CORRIGER !
+
 Sous Windows : installer patch sur cygwin :
 Lancer à nouveau setup-x86_64.exe
 Suivant
@@ -9,6 +11,8 @@ Dérouler le menu à droite de Voir, sélectionner Non installé
 Chercher patch
 Trouver patch, cliquer sur la flèche à droite de Passe, sélectionner la dernière version (2.7.6-17 par exemple)
 Terminer l'installation
+
+Sous Ubuntu, taper : sudo apt-get install patch
 
 cd shell00		// navigue vers le répertoire shell00
 mkdir ex07		// créée le dossier ex07
