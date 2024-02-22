@@ -13,7 +13,8 @@ cat z		// cat : concatenate ; concatène un ou des fichier(s) et imprime la sort
 
 ou
 
-echo "Z" > z	// echo : affiche une ligne de texte à l'écran ; > z : redirige la sortie écran (le résultat qui est normalement affiché à l'écran) vers le contenu du fichier z (le crée s'il n'existe pas encore)
+echo "Z" > z	// echo : affiche une ligne de texte à l'écran 
+		// > z : redirige la sortie écran (le résultat qui est normalement affiché à l'écran) vers le contenu du fichier z (le crée s'il n'existe pas encore)
 
 ASTUCES :
 Utiliser man (man : manual) précédé du nom de la commande pour avoir toutes les infos sur cette commande (exemples : man mkdir, man cd, man vim, man cat ...)
