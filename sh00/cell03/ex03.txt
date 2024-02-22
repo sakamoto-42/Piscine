@@ -1,4 +1,4 @@
-! ATTENTION ! Fonctionne uniquement sur Ubuntu avec Kerberos (voir ubuntu.txt puis kerberos.txt)
+! ATTENTION ! Fonctionne uniquement sur Ubuntu avec Kerberos (voir kerberos.txt)
 
 cd shell00		// navigue vers le répertoire shell00
 mkdir ex03		// créée le dossier ex03
