@@ -1,4 +1,4 @@
-! ATTENTION ! Ne fonctionne pas correctement sur cygwin : faire cet exercice sur FreeBSD (voir freeBSD.txt)
+! ATTENTION ! Ne fonctionne pas correctement sur cygwin : faire cet exercice sur FreeBSD (voir freeBSD.txt) ou sur Ubuntu (voir tuto_install_ubuntu_vm.pdf)
 
 cd shell00		// navigue vers shell00
 mkdir ex01		// créée le dossier ex01
@@ -15,7 +15,7 @@ chmod 455 testShell00	// chmod : change file mode bits ; change les droits d'un 
 			// sur le fichier par le propriétaire du fichier (celui qui l'a créé) (1ère suite de rwx), le groupe d'utilisateur (le premier XX) (2ème suite de rwx)
 			// et les autres (3ème suite de rwx)
 			// - r-- r-x r-x signifie donc que : testShell00 est un fichier, le propriétaire a le droit de lecture, le groupe a le droit de lecture et d'exécution, 			// les autres ont le droit de lecture et d'exécution
-			// on traduit r-- r-x r-x par :
+			// on traduit r-- r-x r-x par en binaire :
 			//	      100 101 101
 			// par groupe de 3 bits, on a donc : 100 101 101
 			// on convertit ces groupes de 3 bits de binaire en décimal
@@ -29,5 +29,6 @@ chmod 455 testShell00	// chmod : change file mode bits ; change les droits d'un 
 
 ls -l 			// liste les fichiers du répertoire courant (option -l : long listing format (liste détaillée))
 
-tar -cf testShell00.tar testShell00 // compresse le testShell00 dans un fichier testShell00.tar (-c : create (crée l'archive) ; -f testShell00.tar : (-f : regular file + nom de 				    // l'archive) : spécifie le nom de l'archive à créer)
+tar -cf testShell00.tar testShell00 // compresse le testShell00 dans un fichier testShell00.tar
+// -c : create (crée l'archive) ; -f testShell00.tar : (-f : regular file + nom de 				    // l'archive) : spécifie le nom de l'archive à créer)
 rm testShell00		// rm : remove ; supprime le fichier testShell00 (car le dossier de rendu ne doit contenir que le fichier spécifié dans la fiche d'exercice)
