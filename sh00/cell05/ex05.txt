@@ -32,7 +32,6 @@ git log	--pretty=format:%H -n 5		// git log affiche l'historique des commits ave
 vim git_commit.sh	// crée le fichier git_commit.sh et l'ouvre avec vim : l'extension .sh indique qu'il s'agit d'un script shell (fichier texte contenant une séquence de 				// commandes interprétables par un interpréteur de shell) ; cela permet d'automatiser des tâches, exécuter des séquences de commandes etc dans un 				// environnement Linux
 i			// entre dans le mode insertion de vim
 #!/bin/sh		// indique le shell à utiliser pour exécuter le script (voir page 2 du sujet : les exercices en Shell doivent être exécutables par /bin/sh)
-			// on peut utiliser #!/bin/bash pour indiquer d'exécuter le script avec Bash
 enter
 git log	--pretty=format:%H -n 5
 echap			// sort du mode insertion de vim
