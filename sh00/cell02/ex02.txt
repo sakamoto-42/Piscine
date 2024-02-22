@@ -1,4 +1,4 @@
-! ATTENTION ! Ne fonctionne pas correctement sur cygwin : faire cet exercice sur FreeBSD (voir freeBSD.txt)
+! ATTENTION ! Ne fonctionne pas correctement sur cygwin et Ubuntu : faire cet exercice sur FreeBSD (voir freeBSD.txt)
 
 cd shell00		// navigue vers le répertoire parent
 mkdir ex02		// créée le dossier ex02
