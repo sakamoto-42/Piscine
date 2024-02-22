@@ -1,0 +1,26 @@
+Créez votre repo sur Github
+
+sudo apt install git
+Allez sur votre repo git, cliquez sur <> Code (en vert), notez votre url (sous HTTPS)
+git clone [url]
+ls
+cd [directory]
+mkdir sh00
+cd sh00
+mkdir ex00
+cd ex00
+echo "Z" > z
+git add .
+git commit -m "commit Ubuntu"
+git config --global user.email "votre-email"
+git push
+Clic droit sur le premier lien, ouvrir le lien
+Allez sur Caching your GitHub credentials in Git
+Cliquez sur Install
+Cliquez sur our Debian and RPM repositories
+Copier le code pour Debian, Ubuntu Linux...
+Coller, entrée
+gh auth login
+Noter le code à 8 caractères
+S'authentifier
+git push
