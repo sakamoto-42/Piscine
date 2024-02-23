@@ -46,7 +46,7 @@ ls -l | sed -n '2~2p'				// affiche une ligne sur deux à partir de la première
 
 vim skip.sh
 i
-#!/bin/sh	// ou #!/bin/bash
+#!/bin/sh	
 enter
 ls -l | sed -n '2,$p'
 echap
