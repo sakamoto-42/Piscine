@@ -48,7 +48,7 @@ id $FT_USER -Gn | tr ' ' ','	// doit afficher daemon,bin
 
 vim print_groups.sh
 i			
-#!/bin/sh		// ou #!/bin/bash
+#!/bin/sh	
 enter
 id $FT_USER -Gn | tr ' ' ',' | cat -e
 echap			
