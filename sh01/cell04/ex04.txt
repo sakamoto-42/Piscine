@@ -27,7 +27,7 @@ ip link | grep link/ | awk '{ print $2 }'	// on utilise awk '{ print $2 }' pour 
 
 vim MAC.sh
 i
-#!/bin/sh	// ou #!/bin/bash
+#!/bin/sh	
 enter
 ip link | grep link/ | awk '{print $2}'
 echap			
