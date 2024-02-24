@@ -35,6 +35,7 @@ echo $FT_NBR1 | sed -e "s/'/0/g" -e 's/\\/1/g' -e 's/"/2/g' -e 's/?/3/g' -e 's/!
 // on utilise sed avec l'option -e pour exécuter plusieurs commandes sed (-e indique d'ajouter le script à la liste de commandes devant être exécutées par sed)
 
 // on peut aussi utiliser la commande (moins lisible mais plus courte) : echo $FT_NBR1 | sed -e "s/'/0/g" -e 'y/\\"?!/1234/'
+
 // y indique de remplacer les caractères entre le premier et le deuxième slash par ceux entre le deuxième et le troisième slash (note : on échappe l'antislash)
 // de même, \ sera remplacé par 1, " par 2, ? par 3 et ! par 4
 
@@ -138,7 +139,7 @@ export $FT_NBR2='dcrcmcmooododmrrrmorcmcrmomo'
 
 vim add_chelou.sh
 i
-#!/bin/sh	// ou #!/bin/bash
+#!/bin/sh
 enter
 echo $FT_NBR1 + $FT_NBR2 | sed -e "s/'/0/g" -e 's/\\/1/g' -e 's/"/2/g' -e 's/?/3/g' -e 's/!/4/g' | sed 'y/mrdoc/01234/' | xargs echo "obase=13 ; ibase=5 ; 10321201 + 14120222" | bc | tr '0123456789ABC' 'gtaio luSnemf'
 echap

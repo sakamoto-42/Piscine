@@ -1,4 +1,4 @@
-lancer Ubuntu
+lancer UbuntuServer
 
 apt install krb5-admin-server	// installe le package Kerberos (qui permettra de mettre en place le serveur d'administration Kerberos (Key Distribution Center - KDC)
 				// ce serveur gérera les utilisateurs et leurs clés de chiffrement (tickets d'authentification Kerberos) ;
