@@ -5,7 +5,8 @@ mkdir ex02		// créée le dossier ex02
 cd ex02			// navigue vers le répertoire ex02
 
 mkdir test0 		// crée le répertoire test0 (d : directory (répertoire))
-chmod 715 test0		// rwx --x r-x = 111 001 101 = 7 1 5
+			// par défaut : rwx --x r-x
+touch -mt 2306012047 test0
 
 vim test1		// crée le fichier test1 et l'ouvre avec vim (le 1er tiret indique que test1 est un fichier)
 i			// entre dans le mode insertion de vim
@@ -14,6 +15,8 @@ echap			// sort du mode insertion de vim
 :wq			// commande pour sauvegarder et quitter vim
 enter			// valider la commande
 chmod 714 test1		// rwx --x r-- = 111 001 100 = 7 1 4
+
+touch -mt 2306012146 test1
 
 mkdir test2 		// crée le répertoire test2 (d : directory (répertoire))
 chmod 504 test2		// r-x --- r-- = 101 000 100 = 5 0 4
