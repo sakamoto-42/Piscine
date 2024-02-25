@@ -1,52 +1,83 @@
-Sous Windows : installer git avant de commencer (voir git.txt)
-cd shell00		// navigue vers le répertoire shell00
-mkdir ex05		// créée le dossier ex05
-cd ex05			// navigue vers le répertoire ex05
+cd shell00
+mkdir ex05
+cd ex05
+ 
+// A EFFECTUER SEULEMENT SI VOUS N'ETES PAS DEJA DANS UN REPO GIT
 
 git init		// transforme le répertoire courant en répertoire git (git repository)
 
+// A EFFECTUER SEULEMENT SI VOUS N'AVEZ PAS DEJA EFFECTUE 5 COMMITS
+
 echo "1" > test.txt	// écrit 1 dans le fichier test.txt
-git add .		// ajoute tous les fichiers modifiés (ou créés) du répertoire courant dans le commit
-			// pour préciser un fichier en particulier (le fichier test.txt par exemple), utiliser git add test.txt
-git commit -m "1"	// crée un commit avec comme message descriptif "1" (pour expliquer les modifications apportées dans ce commit)
+git add .		// ajoute tous les fichiers modifiés (ou créés) 
+			// dans le repo au commit
+			// pour préciser un fichier en particulier
+			// (le fichier test.txt par exemple), utiliser git add test.txt
+git commit -m "1"	// crée un commit avec comme message descriptif "1"
+			// (pour expliquer les modifications apportées dans ce commit)
 
-echo "2" > test.txt	// écrit 2 dans le fichier test.txt
-git add .		// ajoute tous les fichiers modifiés (ou créés) du répertoire courant dans le commit
-git commit -m "2"	// crée un commit avec comme message descriptif "2" (pour expliquer les modifications apportées dans ce commit)
+echo "2" > test.txt
+git add .
+git commit -m "2"
 
-echo "3" > test.txt	// écrit 3 dans le fichier test.txt
-git add .		// ajoute tous les fichiers modifiés (ou créés) du répertoire courant dans le commit
-git commit -m "3"	// crée un commit avec comme message descriptif "3" (pour expliquer les modifications apportées dans ce commit)
+echo "3" > test.txt
+git add .		
+git commit -m "3"	
 
-echo "4" > test.txt	// écrit 4 dans le fichier test.txt
-git add .		// ajoute tous les fichiers modifiés (ou créés) du répertoire courant dans le commit
-git commit -m "4"	// crée un commit avec comme message descriptif "4" (pour expliquer les modifications apportées dans ce commit)
+echo "4" > test.txt	
+git add .		
+git commit -m "4"	
 
-echo "5" > test.txt	// écrit 5 dans le fichier test.txt
-git add .		// ajoute tous les fichiers modifiés (ou créés) du répertoire courant dans le commit
-git commit -m "5"	// crée un commit avec comme message descriptif "5" (pour expliquer les modifications apportées dans ce commit)
+echo "5" > test.txt	
+git add .		
+git commit -m "5"
 
-git log	--pretty=format:%H -n 5		// git log affiche l'historique des commits avec le commit hash (ID) : l'identifiant du commit, représentant l'empreinte du commit, 						// l'auteur et la date à laquelle le commit a été effectué, ainsi que le message du commit (expliquant les modifications apportées dans  					// ce commit)
-					// pour indiquer seulement les id complets des commits, on utilise l'option --pretty=format%H (pour agir sur le format de sortie du log) 					// -n 5 indique de limiter la sortie aux 5 derniers commits
+// FIN DES 5 COMMITS
 
-vim git_commit.sh	// crée le fichier git_commit.sh et l'ouvre avec vim : l'extension .sh indique qu'il s'agit d'un script shell (fichier texte contenant une séquence de 				// commandes interprétables par un interpréteur de shell) ; cela permet d'automatiser des tâches, exécuter des séquences de commandes etc dans un 				// environnement Linux
-i			// entre dans le mode insertion de vim
-#!/bin/sh		// indique le shell à utiliser pour exécuter le script (voir page 2 du sujet : les exercices en Shell doivent être exécutables par /bin/sh)
-enter
-git log	--pretty=format:%H -n 5
-echap			// sort du mode insertion de vim
-:wq			// commande pour sauvegarder et quitter vim
-enter			// valider la commande
-chmod +x git_commit.sh  // rends le script exécutable (donne le droit d'exécution (x) au propriétaire, au groupe et aux autres)
-			// ainsi, si le fichier a comme permissions -rw-r--r-- à sa création, il aura -r-wx-xr--x après avoir exécuté cette commande
+git log	--pretty=format:%H -n 5	
 
-bash git_commit.sh | cat -e	// exécute le script shell git_commit.sh avec l'interpréteur de shell bash et redirige la sortie standard (stdout, le résultat de la commande 					// affiché à l'écran, la sortie écran) de la commande bash git_commit.sh (son résultat, les ids des 5 derniers commits), vers l'entrée standard 				// (stdin, l'entrée clavier, tapée normalement par l'utilisateur au clavier ou lu dans un fichier) de la commande cat -e
+			// git log affiche l'historique des commits avec le hash du commit
+			// (l'identifiant du commit, représentant son empreinte)
+			// mais aussi
+			// l'auteur et la date à laquelle le commit a été effectué
+			// ainsi que le message du commit
+			// (expliquant les modifications apportées dans ce commit)
+			// pour indiquer seulement le hash des commits,
+			// on utilise l'option --pretty=format%H
+			// (pour agir sur le format de sortie du log)
+			// -n 5 indique de limiter le résultat aux 5 derniers commits
 
-				// cat -e : l'option -e de cat permet d'afficher le contenu du résultat en montrant les caractères de fin de ligne (EOL, End Of Line) : chaque 					// fin de ligne est représentée par le symbole $ (en fin de ligne) ; de plus, les caractères non imprimables (de contrôle et spéciaux, par 					// exemple les retours à la ligne, le tabulations) sont affichés sous une forme visible
+vim git_commit.sh	// crée le fichier git_commit.sh et l'ouvre avec vim
+			// l'extension .sh indique qu'il s'agit d'un script shell
+			// (fichier texte contenant une séquence de commandes 
+			// interprétables par un interpréteur de shell)
+<i>
 
-rm text.txt			// supprimer le fichier text.txt (car le dossier de rendu ne doit contenir que le fichier spécifié dans la fiche d'exercice)
-rm -r .git			// supprime le répertoire .git (visible avec ls -a (l'option -a de ls (all) affiche aussi les fichiers commençant par un point (ou deux))
-				// l'option -r de rm supprime les répertoires et leurs contenus
+#!/bin/sh		// indique le shell à utiliser pour exécuter le script
+			// (voir page 2 du sujet :
+			// les exercices en Shell doivent être exécutables par /bin/sh)
+<enter>
+git log	--pretty=format:%H -n 5;
+
+echo "";		// pour ajouter un saut de ligne après le dernier hash affiché
+<echap>			
+:wq			
+<enter>
+			
+chmod +x git_commit.sh  // rends le script exécutable (donne le droit d'exécution (x)
+			// au propriétaire, au groupe et aux autres)
+
+./git_commit.sh | cat -e	// exécute le script shell git_commit.sh
+				// avec le shell et redirige la sortie
+				// de la commande bash git_commit.sh, vers l'entrée
+				// de la commande cat -e (son argument)
+
+				// cat -e : l'option -e de cat permet d'afficher le contenu du résultat
+				// en montrant les caractères de fin de ligne (EOL, End Of Line) : 
+				// chaque fin de ligne est alors représentée par le symbole $
 
 
-Remarque : git est un système de contrôle de version : il permet d'enregistrer les modifications apportées sur un fichier : avec un commit, on envoie le contenu du répertoire en ligne, avec : on peut ainsi gérer différentes versions de fichiers (selon l'évolution de ceux-ci, de leurs modifications), revenir à une version précédente, comparer plusieurs versions de ce fichier...
+
+// N'OUBLIEZ PAS DE SUPPRIMER LE FICHIER test.txt SI VOUS L'AVEZ CREE !
+
+rm test.txt
