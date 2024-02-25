@@ -25,9 +25,10 @@ Install
 Finish
 
 Lancez Git Bash
-Tapez la commande suivante (en remplaçant votre_email@example.com par le mail de votre compte github) :
+Tapez les commandes suivante (en remplaçant votre_email@example.com par le mail de votre compte github) :
+git config --global user.email "votre_email@example.com"
 ssh-keygen -t ed25519 -C "votre_email@example.com"
-Appuyez sur la touche Entrée 3 fois
+Appuyez sur la touche Entrée 4 fois
 Ouvrez PowerShell en mode administrateur
 Tapez les commandes suivantes :
 Get-Service -Name ssh-agent | Set-Service -StartupType Manual

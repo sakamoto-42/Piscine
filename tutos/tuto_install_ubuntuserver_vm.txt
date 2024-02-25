@@ -1,0 +1,42 @@
+lancer UbuntuServer
+
+apt install krb5-admin-server	// installe le package Kerberos (qui permettra de mettre en place le serveur d'administration Kerberos (Key Distribution Center - KDC)
+				// ce serveur gérera les utilisateurs et leurs clés de chiffrement (tickets d'authentification Kerberos) ;
+y enter				// valider
+UBUNTU_REALM			// nom du realm (royaume) Kerberos par défaut : partie de l'infrastructure Kerberos dans laquelle seront enregistrés (et se connecteront) 
+				// les utilisateurs par défaut (chaque utilisateur sera enregistré dans un realm précis)
+UBUNTU_KERBEROS_SERVER		// nom du serveur Kerberos de ce realm
+UBUNTU_ADMIN_SERVER		// nom du serveur d'administration de ce realm
+
+vim /etc/hosts			// le fichier hosts est utilisé pour associer des adresses IP à des noms d'hôtes (correspondance directe)
+				// on associe 127.0.0.1, le serveur local, aux serveurs Kerberos et d'administration
+i
+sous 
+127.0.0.1	localhost
+écrire
+127.0.0.1	UBUNTU_KERBEROS_SERVER
+127.0.0.1	UBUNTU_ADMIN_SERVER
+echap
+:wq
+enter
+
+ping UBUNTU_KERBEROS_SERVER	// on ping (on envoie un signal) au serveur UBUNTU_KERBEROS_SERVER pour vérifier qu'il répond
+ctrl + c			// arrêter le ping
+
+ping UBUNTU_ADMIN_SERVER	// idem pour UBUNTU_ADMIN_SERVER
+ctrl + c
+
+krb5_newrealm		// on crée un realm (royaume) ; il prendra le nom de UBUNTU_REALM (nom défini par défaut précédemment), puis on définit un mot de passe pour se connecter
+master			// par exemple
+master			// on répète le mot de passe
+
+systemctl start krb5-admin-server	// on démarre le serveur d'administration
+systemctl status krb5-admin-server	// on affiche le statut du serveur d'administration
+
+kadmin.local				// on entre dans le mode d'administration de la base de données Kerberos au niveau local (sur le serveur lui-même)
+list_principals				// on liste les utilisateurs du realm (appelés principals)
+addprinc root				// on ajoute l'utilisateur root (notre nom d'utilisateur) à la liste des principals, puis on définit son mot de passe
+root					// par exemple
+root					// on répète le mote de passe
+list_principals				// on vérifie que l'utilisateur root a bien été ajouté à la liste
+exit					// on se déconnecte de la base de données

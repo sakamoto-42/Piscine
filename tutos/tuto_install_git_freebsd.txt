@@ -1,0 +1,27 @@
+Se connecter en root
+
+pkg install git
+y
+redémarrez la VM
+Connectez-vous avec votre user
+git config --global user.email "votre_email@example.com"
+ssh-keygen -t ed25519 -C "votre_email@example.com"
+cat ~/.ssh/id_ed25519.pub
+
+Connectez-vous sur votre compte Github (dans votre navigateur)
+Allez dans SSH and GPC keys
+Cliquez sur New SSH key
+Donnez lui un nom (par exemple FreeBSD SSH Key)
+Sélectionnez Authentification Key
+Recopiez votre clé
+Cliquez sur Add SSH key
+
+ssh -T git@github.com
+
+Sélectionnez le repository que vous voulez cloner
+Cliquez sur <> Code
+Dans Local, cliquez sur l'onglet SSH
+Copiez votre url SSH
+Dans git bash, naviguez jusqu'à C:/cygwin64/home/YOU (en remplaçant YOU par votre user Windows)
+Tapez la commande suivante (en remplaçant votre_url_ssh par l'url que vous avez copiée)
+git clone votre_url_ssh

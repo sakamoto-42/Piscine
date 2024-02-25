@@ -1,5 +1,3 @@
-Créez votre repo sur Github
-
 sudo apt install git
 Allez sur votre repo git, cliquez sur <> Code (en vert), notez votre url (sous HTTPS)
 git clone [url]
@@ -12,7 +10,8 @@ cd ex00
 echo "Z" > z
 git add .
 git commit -m "commit Ubuntu"
-git config --global user.email "votre-email"
+Tapez la commande suivante (en remplaçant votre_email@example.com par le mail de votre compte github) :
+git config --global user.email "votre_email@example.com"
 git push
 Clic droit sur le premier lien, ouvrir le lien
 Allez sur Caching your GitHub credentials in Git
