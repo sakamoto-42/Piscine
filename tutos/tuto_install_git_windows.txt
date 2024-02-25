@@ -10,7 +10,7 @@ Git from the commande line and also 3rd-party software
 Next
 Use bundled OpenSSH
 Next
-Usethe OpenSSL library
+Use the OpenSSL library
 Next
 Checkout as-is, commit as-is
 Next
@@ -23,3 +23,50 @@ Enable file system caching
 Next
 Install
 Finish
+
+Lancez Git Bash
+Tapez la commande suivante (en remplaçant votre_email@example.com par le mail de votre compte github) :
+ssh-keygen -t ed25519 -C "votre_email@example.com"
+Appuyez sur la touche Entrée 3 fois
+Ouvrez PowerShell en mode administrateur
+Tapez les commandes suivantes :
+Get-Service -Name ssh-agent | Set-Service -StartupType Manual
+Start-Service ssh-agent
+
+Lancez cygwin
+Tapez la commande suivante (en remplaçant YOU par votre user Windows) :
+ssh-add c:/Users/YOU/.ssh/id_ed25519
+
+Tapez la commande suivante pour copier la clé publique dans votre presse-papier :
+cat ~/.ssh/id_ed25519.pub | clip
+
+Connectez-vous sur votre compte Github (dans votre navigateur)
+Allez dans SSH and GPC keys
+Cliquez sur New SSH key
+Donnez lui un nom (par exemple Windows SSH Key)
+Sélectionnez Authentification Key
+Collez votre clé
+Cliquez sur Add SSH key
+
+Sélectionnez le repository que vous voulez cloner
+Cliquez sur <> Code
+Dans Local, cliquez sur l'onglet SSH
+Copiez votre url SSH
+Dans git bash, naviguez jusqu'à C:/cygwin64/home/YOU (en remplaçant YOU par votre user Windows)
+Tapez la commande suivante (en remplaçant votre_url_ssh par l'url que vous avez copiée)
+git clone votre_url_ssh
+
+Dans cygwin, tapez la commande suivante :
+echo "test" > test
+
+Dans Git Bash, tapez les commandes suivantes :
+git add .
+git commit -m "test"
+git push
+
+Vérifiez que votre fichier test a bien été push sur votre repo
+Vous pouvez bien sûr créer un raccourci vers votre repo sur bureau et y ajouter ou modifier des fichiers en passant par l'explorateur de fichiers Windows
+
+Utilisez cygwin pour créer vos fichiers en ligne de commande
+
+Utilisez Git bash pour utiliser les commandes git
