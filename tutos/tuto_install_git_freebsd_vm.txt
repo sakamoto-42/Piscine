@@ -22,6 +22,16 @@ Sélectionnez le repository que vous voulez cloner
 Cliquez sur <> Code
 Dans Local, cliquez sur l'onglet SSH
 Copiez votre url SSH
-Dans git bash, naviguez jusqu'à C:/cygwin64/home/YOU (en remplaçant YOU par votre user Windows)
-Tapez la commande suivante (en remplaçant votre_url_ssh par l'url que vous avez copiée)
+Tapez les commandes suivantes (en remplaçant votre_url_ssh par l'url que vous avez copiée)
 git clone votre_url_ssh
+yes
+
+Naviguez dans votre repository, puis tapez la commande suivante :
+echo "test_git_freebsd" > test_git_freebsd
+
+Tapez les commandes suivantes :
+git add .
+git commit -m "test_git_freebsd"
+git push
+
+Vérifiez que votre fichier test a bien été push sur votre repo

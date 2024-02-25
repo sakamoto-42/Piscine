@@ -56,13 +56,14 @@ Copiez votre url SSH
 Dans git bash, naviguez jusqu'à C:/cygwin64/home/YOU (en remplaçant YOU par votre user Windows)
 Tapez la commande suivante (en remplaçant votre_url_ssh par l'url que vous avez copiée)
 git clone votre_url_ssh
+yes
 
-Dans cygwin, tapez la commande suivante :
-echo "test" > test
+Dans cygwin, naviguez dans votre repository, puis tapez la commande suivante :
+echo "test_git_windows" > test_git_windows
 
 Dans Git Bash, tapez les commandes suivantes :
 git add .
-git commit -m "test"
+git commit -m "test_git_windows"
 git push
 
 Vérifiez que votre fichier test a bien été push sur votre repo
