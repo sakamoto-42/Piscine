@@ -32,7 +32,7 @@ git ls-files -io --exclude-standard		// liste tous les fichiers existants ignor√
 
 vim git_ignore.sh	
 i			
-#!/bin/sh		// ou #!/bin/bash
+#!/bin/sh	
 enter
 git ls-files -io --exclude-standard
 echap			
