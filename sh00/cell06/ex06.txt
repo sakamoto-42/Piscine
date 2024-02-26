@@ -1,12 +1,21 @@
-cd shell00		// navigue vers le répertoire shell00
-mkdir ex06		// créée le dossier ex06
-cd ex06			// navigue vers le répertoire ex06
+cd shell00
+mkdir ex06
+cd ex06
 
-git init		// transforme le répertoire courant en répertoire git (git repository)
+// NAVIGUEZ JUSQU'A VOUS PLACER A LA RACINE DE VOTRE DEPOT GIT !
 
-echo ".DS_Store" > .gitignore 	// le fichier .gitignore, placé à la racine d'un répertoire git, doit contenir la liste des fichiers qui doivent être ignorés par git (ils ne 					// seront pas ajoutés aux commits de ce répertoire, même avec git add . (qui ajoute normalement tous les fichiers du répertoire courant dans le 				// prochain commit))		
-			// le fichier .DS_Store est un fichier spécifique à macOS : c'est un fichier caché qui stocke des informations sur des paramètres spécifiques au 				// répertoire (disposition des icônes, taille des fenêtres, etc)
-			// ces fichiers doivent donc être ignorés par git
+echo ".DS_Store" > .gitignore 	
+
+			// le fichier .gitignore, placé à la racine d'un répertoire git, 
+			// doit contenir la liste des fichiers qui doivent être ignorés par git :
+			// ils ne seront donc pas ajoutés aux commits de ce répertoire, même avec git add . 
+			// (qui ajoute normalement tous les fichiers du répertoire courant
+			// dans le prochain commit)	
+	
+			// le fichier .DS_Store est un fichier spécifique à macOS :
+			// c'est un fichier caché qui stocke des informations sur des paramètres 
+			// spécifiques au répertoire (disposition des icônes, taille des fenêtres, etc)
+			// ce fichier doit donc être ignoré par git
 
 echo "*~" >> .gitignore	// exclus tous les fichiers se terminant par ~ (* : wildcard, remplace n'importe quelle suite de caractères)
 			// on utilise >> pour écrire à la suite du fichier .gitignore, sur une nouvelle ligne (et ne pas écraser ce qu'il contenait déjà)
@@ -18,7 +27,7 @@ touch .DS_Store		// crée le fichier .DS_Store
 touch mywork.c		// crée le fichier mywork.c
 touch mywork.c~		// crée le fichier mywork.c~
 
-git add .		// on ajoute tous les fichiers du répertoire courant (mywork.c) au commit (sauf les fichiers infiqués dans le gitignore)
+git add .			// on ajoute tous les fichiers du répertoire courant (mywork.c) au commit (sauf les fichiers infiqués dans le gitignore)
 git commit -m "gitignore"	// on commit ; le résultat devrait être :
 				// 2 files changed, 2 insertions(+)
 				// create mode 100644 .gitignore
