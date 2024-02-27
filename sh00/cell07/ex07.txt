@@ -1,5 +1,3 @@
-A CORRIGER !
-
 Sous Windows : installer patch sur cygwin :
 Lancer à nouveau setup-x86_64.exe
 Suivant
