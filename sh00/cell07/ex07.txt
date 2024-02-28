@@ -1,55 +1,74 @@
-Sous Windows : installer patch sur cygwin :
-Lancer à nouveau setup-x86_64.exe
-Suivant
-Installer depuis internet
-Suivant x3
-Sélectionner un lien miroir de téléchargement (n'importe lequel)
-Suivant
-Dérouler le menu à droite de Voir, sélectionner Non installé
-Chercher patch
-Trouver patch, cliquer sur la flèche à droite de Passe, sélectionner la dernière version (2.7.6-17 par exemple)
-Terminer l'installation
+// ATTENTION ! TELECHARGER LES FICHIERS a ET sw.diff DANS LE DOSSIER RESSOURCES !
 
-Sous Ubuntu, taper : sudo apt-get install patch
+cd shell00
+mkdir ex07
+cd ex07
 
-cd shell00		// navigue vers le répertoire shell00
-mkdir ex07		// créée le dossier ex07
-cd ex07			// navigue vers le répertoire ex07
+// DEPLACEZ LES FICHIERS a ET sw.diff DANS LE REPERTOIRE DE RENDU ex07 :
+// Déplacez-vous dans le répertoire contenant a et sw.diff
+// (Téléchargements si vous les avez téléchargés, ressources si vous avez cloné le git)
+// Tapez la commande suivante : mv file destination_directory
+// en remplaçant file par a ou sw.diff (l'un des deux à la fois !)
+// et destination_directory par le chemin vers le répertoire de rendu ex07
+// en utilisant un chemin absolu ou relatif
+// - chemin absolu : à partir de la racine (/home/julien/Piscine/shell00/cell07/ex07 par exemple)
+// - chemin relatif : à partir du répertoire courant, en utilisant .. pour remonter d'un répertoire
+//  (../ex07 par exemple, si vous avez êtes dans le répertoire ressources et que vous voulez remonter d'un niveau
+// pour revenir dans cell07, ou se trouve ex07
 
-vim a			// créer le fichier original a 
-i
-STARWARS
-Episode IV, A NEW HOPE It is a period of civil war.
+cat -e a
 
-Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.
-During the battle, Rebel spies managed to steal secret plans to the Empire's ultimate weapon, the DEATH STAR,
-an armored space station with enough power to destroy an entire planet.
+// RESULTAT ($ indique un retour à la ligne) :
 
-Pursued by the Empire's sinister agents, Princess Leia races home aboard her starship, custodian of the stolen plans that can save her people and restore freedom to the galaxy...
+STARWARS$
+Episode IV, A NEW HOPE It is a period of civil war.$
+$
+Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.$
+During the battle, Rebel spies managed to steal secret plans to the Empire's ultimate weapon, the DEATH STAR,$
+an armored space station with enough power to destroy an entire planet.$
+$
+Pursued by the Empire's sinister agents, Princess Leia races home aboard her starship, custodian of the stolen plans that can save her people and restore freedom to the galaxy...$
+$
 
-echap
-:wq
-enter
+cat sw.diff
 
-cp a b			// copie le fichier a dans le fichier b (et le crée s'il n'existe pas encore)
-vim b			// créer le fichier b avec quelques différences
-i
-STARSHIP
-Episode VIII, A NEW DESPAIR It is a period of civil peace.
+// RESULTAT :
+1,2c1,8
+< STARWARS
+< Episode IV, A NEW HOPE It is a period of civil war.
+---
+> Episode V, A NEW HOPE It is a period of civil war.
+> Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.
+> During the battle, Rebel spies managed to steal secret plans to the Empire's ultimate weapon, the DEATH STAR, an armored space station with enough power to destroy an entire planet.
+>
+>
+> Pursued by the Empire's sinister agents,
+> Princess Mehdi races home aboard her starship, custodian of the stolen plans that can save her people and restore dictatorship to the galaxie..
+>
+4,6d9
+< Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.
+< During the battle, Rebel spies managed to steal secret plans to the Empire's ultimate weapon, the DEATH STAR,
+< an armored space station with enough power to destroy an entire planet.
+8d10
+< Pursued by the Empire's sinister agents, Princess Leia races home aboard her starship, custodian of the stolen plans that can save her people and restore freedom to the galaxy...
 
-Friendly spaceships, relaxing from a visible base, have lost their first defeat against the kind Civil Empire.
-After the battle, Friendly spies managed to give back secret plans to the Empire's ultimate gift, the LOVE STAR,
-an armored sea ship with not enough power to repopulate an entire city.
+// EXPLICATIONS : ...
+1,2c1,8
+// les lignes 1 et 2 du fichier original sont remplacées par les lignes 1 à 8 dans le fichier modifié
+4,6d9
+// les lignes 4, 5 et 6 ont été supprimées (juste avant la ligne 9)
+8d10
+// la ligne 8 a été supprimée (juste avant la ligne 10) 
 
-Fled by the Empire's friendly agents, Princess Leila run from home aboard her sunplane, custodian of the recovered plans that can kill her people and restore war to the planet...
+// le fichier diff a été créé avec la commande :
+// diff a b > sw.diff
+// ce qui a crée un fichier diff, contenant les différences entre le fichier a et le fichier b (présente les lignes ajoutées, supprimées ou modifiées entre les 2 versions, ce qui facilite la compréhension des changements effectués)
 
-echap
-:wq
-enter
+cat a b		// copie le fichier a dans le fichier b
 
-diff a b > sw.diff	// crée un fichier diff, contenant les différences entre le fichier a et le fichier b (présente les lignes ajoutées, supprimées ou modifiées entre les 2 			// versions, ce qui facilite la compréhension des changements effectués)
+patch b < sw.diff	// met à jour (patche) le fichier a avec le fichier sw.diff : remplace le contenu du fichier a différent de celui de b par le contenu de sw.diff
 
-patch a sw.diff		// met à jour (patche) le fichier a avec le fichier sw.diff : remplace le contenu du fichier a différent de celui de sw.diff par le contenu de sw.diff
+// ouvrir les fichiers a et b, les mettre en face et voir le résultat
 
 rm a sw.diff
 
