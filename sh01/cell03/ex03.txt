@@ -30,7 +30,7 @@ find . -type d,f ! -name . | wc -l	// on liste tous les fichiers de type dossier
 
 vim count_files.sh
 i
-#!/bin/sh	// ou #!/bin/bash
+#!/bin/sh	
 enter
 find . -type d, f | wc -l
 echap			
