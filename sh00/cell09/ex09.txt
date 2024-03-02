@@ -1,32 +1,56 @@
-cd shell00		// navigue vers le répertoire shell00
-mkdir ex09		// créée le dossier ex09
-cd ex09			// navigue vers le répertoire ex09
+cd shell00
+mkdir ex09
+cd ex09
 
-vim ft_magic		// crée le fichier ft_magic
-			// ce fichier magique contiendra les règles pour le reconnaissance de types personnalisés de fichiers
-i
-41	string 42	42 file		// indique de rechercher les fichiers de type 42, c'est-à-dire qui contiennent, à partir du 42ème bit (avec un offset de 41 bits),
-					// la chaîne de caractères 42 (string 42)
-					// ce fichier sera de type 42 file
+vim ft_magic		// on crée le fichier ft_magic
+			// ce fichier magique contiendra les règles pour le détection de fichiers
+			// de type 42 file, c'est-à-dire
+			// constitués de la chaine de caractères "42" au 42eme octet
 
-echap
+			// un fichier magique est formaté comme ceci (avec une tabulation entre chaque donnée):
+			// offset	type	test	description
+			// avec :
+
+			// offset : où commencer à chercher le pattern indiqué
+			// 0 : à partir du début du fichier
+			// 41 : skippe 41 octets à partir du début du fichier
+			// (commence à chercher à partir du 42eme octet)
+
+			// type : spécifie comment interpréter les données à partir de l'offset
+			// on cherche une chaine de caractères
+			// on indique donc string
+
+			// test : le pattern ou les tests à exécuter sur les données à partir de l'offset
+			// on cherche la chaine 42
+			// on indique donc 42
+
+			// description : la description de ce type de fichier
+			// elle sera affichée si le test réussi
+			// (si un fichier de ce type a été détecté)
+			// on définit ce type de fichier "42 file"
+			// on indique donc 42 file
+
+<i>
+41	string	42	42 file
+<echap>
 :wq
-enter
+<enter>
 
 vim test
-i
-space x 42		// pour arriver au 42ème bit
-42			// on insère la chaîne de caractère 42
-echap
+<i>
+<space> x 41
+42
+<echap>
 :wq
-enter
+<enter>
 
 file -m ft_magic test		// file : détermine le type d'un fichier
-				// option -m : permet de spécifier le fichier magique (fichier de définition magique) à utiliser
+				// -m : permet de spécifier le fichier magique à utiliser
 				// ft_magic : le fichier magique à utiliser
 				// test : le fichier dont on veut déterminer le type
 
-				// le résultat devrait être : test: 42 file
+				// RESULTAT :
+				// test: 42 file
 
 rm test
 
