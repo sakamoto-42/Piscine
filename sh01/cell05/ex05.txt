@@ -1,5 +1,3 @@
-! ATTENTION ! Ne fonctionne pas correctement sur cygwin : faire cet exercice sur FreeBSD (voir freeBSD.txt)
-
 cd shell01
 mkdir ex05
 cd ex05
