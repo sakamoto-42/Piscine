@@ -1,62 +1,26 @@
-Ecrire une ligne de commande qui affiche chaque autre ligne de la commande ls -l, en commençant à partir de la première ligne
-
 cd shell01
 mkdir ex06
 cd ex06
 
 touch file1 file2 file3 file4 file5 file6
 
-ls -l | sed '1d'	// sed (stream editor) : utilisé pour filtrer et transformer du texte
-			// sed (sans options) affiche toutes les lignes d'un texte (le résultat de ln -l ici)
-			// on indique entre guillemets simples '' ce qu'on veut faire
-			// on supprime la première ligne avec 1d (1 : 1ère ligne ; d : delete (supprimer))
-
-				// affiche chaque autre ligne de la commande à partir de la première ligne (non incluse)
-				// résultat : file1, file2, file3, file4, file5, file6
-
-ls -l | sed -n '1,$p'	// avec l'option -n, sed n'affiche aucune ligne du texte passé en entrée, sauf celles filtrées (correspondant à ce que l'on filtre)
-			// on affiche les lignes (p : print (imprimer)) en partant de la première ligne (1) jusqu'à la dernière ($)
-						// affiche chaque autre ligne de la commande à partir de la première ligne (incluse)
-						// résultat : total 0, file1, file2, file3, file4, file5, file6
-
-ls -l | sed -n '2,$p'				// affiche chaque autre ligne de la commande à partir de la première ligne (non incluse)
-						// résultat : file1, file2, file3, file4, file5, file6
-
-ls -l | sed -n 'p;n'	// 2 commandes ici (séparées par ;) : on imprime la ligne (avec p), puis on passe la ligne suivante (sans l'imprimer) (on skip, avec n)
-						// affiche une ligne sur deux à partir de la première (incluse)
-						// résultat : total 0, file2, file4, file6
-
-ls -l | tail -n +2 | sed -n 'p;n'	// tail : affiche la dernière partie d'un fichier
-					// option -n +2 de tail : affiche les dernières lignes du fichier en commençant par la 2ème ligne
-						// afficher une ligne sur deux à partir de la première (non incluse)
-						// résultat : file1, file3, file5
-
-ls -l | tail -n +1 | sed -n 'p;n'		// afficher une ligne sur deux à partir de la première (incluse)
-						// résultat : total 0, file2, file4, file6
-
 ls -l | sed -n '1~2p'	// à partir de la première ligne (1)
 			// on sélectionne chaque 2ème ligne à partir de la position courante
 			// (~ : tilde, opérateur de séquence numérique) (~2)
 			// et on l'imprime (avec p)
-						// affiche une ligne sur deux à partir de la première (incluse)
-						// résultat : total 0, file2, file4, file6
-
-ls -l | sed -n '2~2p'				// affiche une ligne sur deux à partir de la première (non incluse)
-						// résultat : file1, file3, file5
+			// affiche une ligne sur deux à partir de la première (incluse)
+			// résultat : total 0, file2, file4, file6
 
 vim skip.sh
-i
-#!/bin/sh	
-enter
-ls -l | sed -n '2,$p'
-echap
+<i>
+#!/bin/sh
+ls -l | sed -n '1~2p'
+<escape>
 :wq
-enter
+<enter>
 
 chmod +x skip.sh
 
 ./skip.sh
 
-rm file1 file2 file3 file4 file5 file6
-
-ASTUCE : https://buzut.net/apprendre-commande-sed-linux/
+rm file*
