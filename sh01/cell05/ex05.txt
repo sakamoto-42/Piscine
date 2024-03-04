@@ -2,34 +2,49 @@ cd shell01
 mkdir ex05
 cd ex05
 
-touch \"\\\?\$\*\'MaRViN\'\*\$\\\"	// on échappe les caractères spéciaux avec \ (avant chaque caractère spécial) pour qu'il soit interprété de façon littérale
-					// sinon : 
+touch \"\\\?\$\*\'MaRViN\'\*\$\\\"	
+
+		// on échappe chacun des caractères spéciaux avec \
+		// (avant chaque caractère spécial) pour qu'il soit interprété de façon littérale
+		// sinon :
 					
-					// les deux guillements simples ' seront interprétées comme délimitation d'une chaîne de caractères littérale
-					// le texte entre les deux guillemets simples sera interprété tel quel, la substitution des variables n'aura pas lieu
+		// les deux guillements simples ' seront interprétées comme
+		// délimitation d'une chaîne de caractères
+
+		// les deux doubles guillements " seront aussi interprétées comme
+		// délimitation d'une chaîne de caractères
 					
-					// les deux doubles guillements " seront interprétées comme délimitation d'une chaîne de caractères
-					// où la substitution des variables aura lieu
+		// l'antislash \ sera interprété comme un caractère d'échappement
 					
-					// l'antislash \ sera interprété comme un caractère d'échappement : il échappera donc le caractère spécial suivant
+		// le point d'interrogation ? sera interprété come un caractère de substitution
 					
-					// le point d'interrogation ? sera interprété come un caractère de substitution (globbing) : il correspondra à n'importe quel caractère 					// unique dans le nom d'un fichier ou d'un répertoire lors de l'exécution d'une commande
-					
-					// l'astérisque * sera interprétée comme un caractère de substitution (globbing) : il correspondra à 0, 1 ou plusieurs caractères dans le 					// nom d'un fichier ou d'un répertoire lors de l'exécution d'une commande
+		// l'astérisque * sera aussi interprétée comme un caractère de substitution
 
-					// le dollar $ sera interprété comme le symbole de référencement d'une variable (les caractères suivants formeront le nom de cette 						// variable
+		// le dollar $ sera interprété comme le symbole de référencement d'une variable
 
-printf '42' > \"\\\?\$\*\'MaRViN\'\*\$\\\"	// on utilise printf (au lieu de echo ou vim par exemple) pour ne pas insérer automatiquement de saut à la ligne en fin de fichier (on veut que le fichier contienne UNIQUEMENT "42" et RIEN D'AUTRE
+printf '42' > \"\\\?\$\*\'MaRViN\'\*\$\\\"
 
-cat \"\\\?\$\*\'MaRViN\'\*\$\\\"		// résultat : 42 (attention, pas de saut à la ligne, bien regarder au début de la ligne affichée après cette commande
-						// 42admin@admin:~ $
+		// on utilise printf (au lieu de echo ou vim par exemple)
+		// pour écrire dans le fichier
+		// sans insérer automatiquement un saut à la ligne en fin de fichier
+		// (car on veut que le fichier contienne 'uniquement "42" et RIEN d'autre.'
 
-chmod 614 \"\\\?\$\*\'MaRViN\'\*\$\\\"		// pour -rw---xr--
+cat \"\\\?\$\*\'MaRViN\'\*\$\\\"	// RESULTAT : 42
+					// (sans retour à la ligne)
 
-ls -lRa *MaRV* | cat -e				// liste les fichiers et répertoires à partir du répertoire courant
-						// option -l : long listing format (liste détaillée)
-						// option -R : recursive (liste les sous-répertoires récursivement)
-						// option -a : all (liste aussi les fichiers cachés, commençant par un point .)
 
-						// on écrit *MaRV* pour indiquer qu'on cherche un fichier contenant MaRV (commençant et se terminant par n'importe quelle suite de caractères)
 
+
+
+
+ls -lRa *MaRV* | cat -e		// ls : liste les fichiers et répertoires à partir du répertoire courant
+				// option -l : long listing format (liste détaillée)
+				// option -R : recursive (liste les sous-répertoires récursivement)
+				// option -a : all (liste aussi les fichiers cachés, commençant par un point .)
+
+				// on écrit *MaRV* pour indiquer qu'on cherche un fichier contenant MaRV
+				// (commençant et se terminant par n'importe quelle suite de caractères)
+
+				// ASTUCES :
+				// man printf
+				// man ls
