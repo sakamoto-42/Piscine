@@ -34,7 +34,8 @@ echo $FT_NBR1 | sed -e "s/'/0/g" -e 's/\\/1/g' -e 's/"/2/g' -e 's/?/3/g' -e 's/!
 // on utilise pour cela sed avec s pour indiquer une substitution, g pour indiquer que substituer les caractères de manière globale, dans toute la chaîne de caractère contenue // dans FT_NBR1 (pas seulement la première occurence)
 // on utilise sed avec l'option -e pour exécuter plusieurs commandes sed (-e indique d'ajouter le script à la liste de commandes devant être exécutées par sed)
 
-// on peut aussi utiliser la commande (moins lisible mais plus courte) : echo $FT_NBR1 | sed -e "s/'/0/g" -e 'y/\\"?!/1234/'
+// on peut aussi utiliser la commande (moins lisible mais plus courte) : echo $FT_NBR1 | 
+sed -e "s/'/0/g" -e 'y/\\"?!/1234/'
 
 // y indique de remplacer les caractères entre le premier et le deuxième slash par ceux entre le deuxième et le troisième slash (note : on échappe l'antislash)
 // de même, \ sera remplacé par 1, " par 2, ? par 3 et ! par 4
