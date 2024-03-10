@@ -1,2 +1,8 @@
 .DS_Store
 *~
+*.h
+*.swp
+a.out
+main.c
+eval/
+output
