@@ -1,6 +1,8 @@
 .DS_Store
 *~
+*.h
 *.swp
 a.out
 main.c
-semi-auto-correct-42/
+eval/
+output
