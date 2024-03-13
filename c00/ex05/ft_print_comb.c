@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 15:25:23 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/03/12 20:01:20 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/03/13 21:30:37 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_print_comb(void)
 				ft_write_number(i);
 				ft_write_number(j);
 				ft_write_number(k);
-				if (i != 7 || j != 8 || k != 9)
+				if (!(i == 7 && j == 8 && k == 9))
 					write(1, ", ", 2);
 				k++;
 			}
