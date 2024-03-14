@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 21:13:14 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/03/13 20:01:52 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/03/14 20:37:06 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,18 @@ void	ft_putnbr(int n)
 {
 	if (n < 0)
 	{
-		write(1, "-", 1);
-		n = -n;
+		if (n == -2147483648)
+		{
+			write(1, "-2147483648", 11);
+			return ;
+		}
+		else
+		{
+			write(1, "-", 1);
+			n = -n;
+		}
 	}
-	if (n <= 9)
-	{
-		ft_write_number(n);
-	}
-	else
-	{
-		ft_write_numbers(n);
-	}
-	write(1, "\n", 1);
+	ft_write_numbers(n);
 }
 
 void	ft_write_number(int n)
