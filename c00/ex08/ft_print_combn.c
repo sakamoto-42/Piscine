@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 21:20:37 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/03/13 22:08:21 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/03/14 21:45:49 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,86 @@
 
 void	ft_write_number(int n);
 void	ft_write_numbers(int n);
+void	ft_print_comb1(void);
+void	ft_print_comb2(void);
+void	ft_print_comb3(void);
 
 void	ft_print_combn(int n)
 {
-	int	i;
-
 	if (n == 1)
 	{
-		i = 0;
-		while (i <= 9)
-		{
-			ft_write_number(i);
-			if (!(i == 9))
-				write(1, ", ", 2);
-			i++;
-		}
+		ft_print_comb1(void);
 	}
-	write(1, "\n", 1);
 	if (n == 2)
 	{
-		i = 0;
-		while (i <= 99)
+		ft_print_comb2(void);
+	}
+	if (n == 3)
+	{
+		ft_print_comb3(void);
+	}
+}
+
+void	ft_print_comb1(void)
+{
+	int	i;
+
+	i = 0;
+	while (i <= 9)
+	{
+		ft_write_numbers(i);
+		if (!(i == 9))
+			write(1, ", ", 2);
+		i++;
+	}
+}
+
+void	ft_print_comb2(void)
+{
+	int	j;
+	int	i;
+
+	j = 0;
+	while (j <= 8)
+	{
+		i = j + 1;
+		while (i <= 9)
 		{
+			ft_write_numbers(j);
 			ft_write_numbers(i);
-			if (!(i == 99))
+			if (!(j == 8 && i == 9))
 				write(1, ", ", 2);
 			i++;
 		}
+		j++;
+	}
+}
+
+void	ft_print_comb3(void)
+{
+	int	k;
+	int	j;
+	int	i;
+
+	k = 0;
+	while (k <= 7)
+	{
+		j = k + 1;
+		while (j <= 8)
+		{
+			i = j + 1;
+			while (i <= 9)
+			{
+				ft_write_numbers(k);
+				ft_write_numbers(j);
+				ft_write_numbers(i);
+				if (!(k == 7 && j == 8 && i == 9))
+					write(1, ", ", 2);
+				i++;
+			}
+			j++;
+		}
+		k++;
 	}
 }
 
@@ -52,8 +105,9 @@ void	ft_write_number(int n)
 	write(1, &c, 1);
 }
 
-void ft_write_numbers(int n)
+void	ft_write_numbers(int n)
 {
-	ft_write_number(n / 10);
+	if (n >= 10)
+		ft_write_numbers(n / 10);
 	ft_write_number(n % 10);
 }
