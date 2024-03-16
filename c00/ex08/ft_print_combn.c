@@ -6,94 +6,56 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 21:20:37 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/03/14 21:45:49 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/03/16 14:01:39 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
+void	ft_print_combn(int n);
+void	ft_recursive_combn(int *comb, int n, int pos, int prev);
+void	ft_write_combn(int *comb, int n);
 void	ft_write_number(int n);
-void	ft_write_numbers(int n);
-void	ft_print_comb1(void);
-void	ft_print_comb2(void);
-void	ft_print_comb3(void);
 
 void	ft_print_combn(int n)
 {
-	if (n == 1)
+	int	comb[10];
+
+	if (n >= 1 && n <= 10)
 	{
-		ft_print_comb1(void);
-	}
-	if (n == 2)
-	{
-		ft_print_comb2(void);
-	}
-	if (n == 3)
-	{
-		ft_print_comb3(void);
+		ft_recursive_combn(comb, n, 0, -1);
 	}
 }
 
-void	ft_print_comb1(void)
+void	ft_recursive_combn(int *comb, int n, int pos, int prev)
 {
 	int	i;
 
-	i = 0;
-	while (i <= 9)
+	if (pos == n)
 	{
-		ft_write_numbers(i);
-		if (!(i == 9))
+		ft_write_combn(comb, n);
+		if (comb[0] < 10 - n)
 			write(1, ", ", 2);
+		return ;
+	}
+	i = prev + 1;
+	while (i < 10)
+	{
+		comb[pos] = i;
+		ft_recursive_combn(comb, n, pos + 1, i);
 		i++;
 	}
 }
 
-void	ft_print_comb2(void)
+void	ft_write_combn(int *comb, int n)
 {
-	int	j;
 	int	i;
 
-	j = 0;
-	while (j <= 8)
+	i = 0;
+	while (i < n)
 	{
-		i = j + 1;
-		while (i <= 9)
-		{
-			ft_write_numbers(j);
-			ft_write_numbers(i);
-			if (!(j == 8 && i == 9))
-				write(1, ", ", 2);
-			i++;
-		}
-		j++;
-	}
-}
-
-void	ft_print_comb3(void)
-{
-	int	k;
-	int	j;
-	int	i;
-
-	k = 0;
-	while (k <= 7)
-	{
-		j = k + 1;
-		while (j <= 8)
-		{
-			i = j + 1;
-			while (i <= 9)
-			{
-				ft_write_numbers(k);
-				ft_write_numbers(j);
-				ft_write_numbers(i);
-				if (!(k == 7 && j == 8 && i == 9))
-					write(1, ", ", 2);
-				i++;
-			}
-			j++;
-		}
-		k++;
+		ft_write_number(comb[i]);
+		i++;
 	}
 }
 
@@ -103,11 +65,4 @@ void	ft_write_number(int n)
 
 	c = n + 48;
 	write(1, &c, 1);
-}
-
-void	ft_write_numbers(int n)
-{
-	if (n >= 10)
-		ft_write_numbers(n / 10);
-	ft_write_number(n % 10);
 }
