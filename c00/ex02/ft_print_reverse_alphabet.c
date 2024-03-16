@@ -6,18 +6,18 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 14:34:56 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/03/10 14:41:57 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/03/16 16:26:14 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_reverse_alphabet()
+void	ft_print_reverse_alphabet(void)
 {
 	char	c;
 
-	c = 122;
-	while (c <= 122 && c >= 97)
+	c = 'z';
+	while (c >= 'a')
 	{
 		write(1, &c, 1);
 		c--;
