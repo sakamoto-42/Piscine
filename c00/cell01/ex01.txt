@@ -1,0 +1,38 @@
+#include <unistd.h>
+
+// on déclare la fonction ft_print_alphabet
+// qui ne retourne rien et ne prend aucun paramètre
+void	ft_print_alphabet(void)
+{
+	// on déclare la variable c de type char
+	// qui contiendra les caractères de 'a' à 'z'
+	char	c;
+
+	// on saute une ligne entre la déclaration des variables
+	// et l'implémentation du programme pour respecter la norme
+	// on initialise la variable c avec le caractère 'a'
+	c = 'a';
+
+	// on utilise une boucle while pour répéter l'affichage du caractère
+	// contenu dans la variable c
+	// et son indentation (passage à la lettre suivante)
+	// tant que le caractère à afficher est inférieur ou égal à 'z'
+
+	// le code à l'intérieur du bloc d'accolades
+	// sera exécuté en boucle tant que la condition
+	// entre parenthèses sera respectée
+	// tant que le caractère contenu dans la variable c
+	// est inférieur ou égal (se trouve avant ou équivaut) au caractère 'z'
+	while (c <= 'z')
+	{
+		// on écrit ce caractère à l'écran
+		write(1, &c, 1);
+
+		// on avance d'un caractère :
+		// on passera donc de 'a' à 'b'
+		// puis de 'b' à 'c' (au deuxième tour de boucle)
+		// c++; est une syntaxe raccourcie de :
+		// c = c + 1;
+		c++;
+	}
+}
