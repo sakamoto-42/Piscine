@@ -63,6 +63,6 @@ void	ft_write_number(int n)
 {
 	char	c;
 
-	c = n + 48;
+	c = n + '0';
 	write(1, &c, 1);
 }
