@@ -6,11 +6,15 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 21:53:56 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/03/24 17:31:11 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/03/24 18:07:12 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_swap(int *a, int *b)
 {
+	int	temp;
 
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
