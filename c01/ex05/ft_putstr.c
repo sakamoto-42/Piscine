@@ -6,11 +6,42 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 17:39:54 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/03/24 17:41:28 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/03/25 09:21:30 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+
 void	ft_putstr(char *str)
 {
+	int size;
+	int i;
 
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	size = i;
+	write(1, str, size);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
