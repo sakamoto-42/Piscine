@@ -6,11 +6,16 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 17:41:53 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/03/24 17:42:24 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/03/25 19:55:15 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strlen(char *str)
 {
+	int	i;
 
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
