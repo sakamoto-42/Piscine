@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 17:39:54 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/03/25 21:14:30 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/03/27 18:42:39 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	ft_putstr(char *str)
 	i = 0;
 	while (str[i] != '\0')
 		i++;
-	size = i;
+	size = i + 1;
 	write(1, str, size);
 }
