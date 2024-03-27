@@ -1,29 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/26 20:43:31 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/03/27 22:15:48 by sakamoto-42      ###   ########.fr       */
+/*   Created: 2024/03/10 21:13:14 by sakamoto-42       #+#    #+#             */
+/*   Updated: 2024/03/19 20:49:36 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
-{
-	int	i;
-	int	is_alpha;
+#include <unistd.h>
 
-	i = 0;
-	is_alpha = 0;
-	while (str[i] != '\0')
+void	ft_write_numbers(int n);
+void	ft_write_number(int n);
+
+void	ft_putnbr(int n)
+{
+	if (n == -2147483648)
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-		{
-			is_alpha = 1;
-		}
-		i++;
+		write(1, "-2147483648", 11);
+		return ;
 	}
-	return (is_alpha);
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		n = -n;
+	}
+	ft_write_numbers(n);
+}
+
+void	ft_write_numbers(int n)
+{
+	if (n >= 10)
+		ft_write_numbers(n / 10);
+	ft_write_number(n % 10);
+}
+
+void	ft_write_number(int n)
+{
+	char	c;
+
+	c = n + '0';
+	write(1, &c, 1);
 }
