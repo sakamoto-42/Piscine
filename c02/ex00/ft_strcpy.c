@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 20:37:15 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/03/27 20:03:07 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/03/27 20:30:07 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ char	*ft_strcpy(char *dest, char *src)
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
+	if (src[i] == '\0')
+		dest[i] = '\0';
 	return (dest);
 }
