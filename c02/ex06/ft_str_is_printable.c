@@ -6,11 +6,20 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 21:03:02 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/03/26 21:03:56 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/03/28 21:24:11 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_str_is_printable(char *str)
 {
-	
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (!(str[i] >= 32 && str[i] <= 126))
+			return (0);
+		i++;
+	}
+	return (1);
 }
