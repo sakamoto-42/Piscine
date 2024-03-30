@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 21:11:44 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/03/29 20:20:01 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/03/29 20:27:01 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ char	*ft_strcapitalize(char *str)
 		{
 			str[i] = str[i] - 32;
 			i++;
-			while (str[i] >= 'A' && str[i] <= 'Z')
+			if (str[i] >= 'A' && str[i] <= 'Z')
 			{
 				str[i] = str[i] + 32;
 				i++;
 			}
 		}
-		i++;
 	}
 	return (str);
 }

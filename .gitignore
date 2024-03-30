@@ -6,5 +6,6 @@ a.out
 main.c
 eval/
 output
+*.txt
 c01/**/ft_putnbr.c
 c02/**/ft_putstr.c
