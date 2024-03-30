@@ -14,7 +14,7 @@ void	ft_ft(int *nbr)
 	// d'affectation =
 	// * est donc ici l'opérateur de déréférencement
 	// cela signifie :
-	// valeur située à l'adresse fournie par le pointeur nbr
+	// variable située à l'adresse fournie par le pointeur nbr
 	// cette instruction modifie la valeur de la variable pointée par nbr
 	// (la valeur de la variable se trouvant à l'adresse contenue dans *nbr,
 	// donc à l'adresse passée en paramètre de la fonction)
