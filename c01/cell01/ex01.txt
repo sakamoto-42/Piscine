@@ -83,7 +83,7 @@ int	main (void)
 	ft_ultimate_ft(&pt8);
 
 	// pour afficher notre nombre
-	ft_putnbr(n);
+	ft_putnbr(********pt8);
 
 	// pour indiquer au système d'exploitation que le programme s'est terminé avec succès
 	return (0);
