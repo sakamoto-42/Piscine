@@ -1,4 +1,4 @@
-.DS_Store
+DS_Store
 *~
 *.h
 *.swp
@@ -10,3 +10,4 @@ output
 c01/**/ft_putnbr.c
 c02/**/ft_putnbr.c
 c02/**/ft_putstr.c
+c02/ex09/ft_strcpy.c
