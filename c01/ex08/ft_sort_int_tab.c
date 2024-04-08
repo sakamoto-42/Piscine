@@ -6,11 +6,11 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 17:46:24 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/03/26 20:28:11 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/08 18:46:51 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_swap(int *a, int *b);
+void	ft_swap_int(int *a, int *b);
 
 void	ft_sort_int_tab(int *tab, int size)
 {
@@ -29,12 +29,12 @@ void	ft_sort_int_tab(int *tab, int size)
 				min_i = j;
 			j++;
 		}
-		ft_swap(&tab[min_i], &tab[i]);
+		ft_swap_int(&tab[min_i], &tab[i]);
 		i++;
 	}
 }
 
-void	ft_swap(int *a, int *b)
+void	ft_swap_int(int *a, int *b)
 {
 	int	temp;
 
