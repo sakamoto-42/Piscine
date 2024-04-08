@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 21:18:20 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/08 22:31:26 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/08 22:34:18 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_handle_non_printable_char(char c);
 void	ft_putstr_non_printable(char *str)
 {
 	int		i;
-	char	c;
 
 	i = 0;
 	while (str[i] != '\0')
