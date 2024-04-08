@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/26 21:14:14 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/08 17:24:21 by sakamoto-42      ###   ########.fr       */
+/*   Created: 2024/03/26 20:37:15 by sakamoto-42       #+#    #+#             */
+/*   Updated: 2024/03/27 20:46:03 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
+char	*ft_strcpy(char *dest, char *src)
 {
 	int	i;
-	unsigned int	src_size;
 
 	i = 0;
-	src_size = 0;
-
-	while (src[src_size] != '\0')
+	while (src[i] != '\0')
 	{
-		while (i < size - 1)
-		{
-			dest[i] = src[i];
-			i++;
-			src_size = i;
-		}
-		src_size++;
+		dest[i] = src[i];
+		i++;
 	}
 	dest[i] = '\0';
-	return (src_size);
+	return (dest);
 }
