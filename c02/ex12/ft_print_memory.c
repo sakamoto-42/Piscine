@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 21:21:55 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/09 21:19:26 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/09 22:24:10 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,17 @@ void	ft_print_str_printable_content(void *addr, unsigned int size);
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
-	unsigned int offset = 0;
+	unsigned int	offset;
 
-	if (size != 0)
+	offset = 0;
+	while (offset < size - 1)
 	{
-		ft_print_hex_addr_first_char(addr);
-		ft_print_str_hexa_content(addr, size);
-		ft_print_str_printable_content(addr, size);
+		ft_print_hex_addr_first_char(addr + offset);
+		ft_print_str_hexa_content(addr + offset, size - offset);
+		write(1, " ", 1);
+		ft_print_str_printable_content(addr + offset, size - offset);
+		write(1, "\n", 1);
+		offset += 16;
 	}
 	return (addr);
 }
@@ -44,25 +48,26 @@ void	ft_print_hex_addr_first_char(void *addr)
 		ft_print_hex_char(current_byte);
 		shift_value -= 8;
 	}
-	write(1, ": ", 1);
+	write(1, ": ", 2);
 }
 
 void	ft_print_str_hexa_content(void *addr, unsigned int size)
 {
 	unsigned int	i;
-	char *str = (char*)addr;
-	unsigned char	hex_char;
+	unsigned char	*str;
 
 	i = 0;
-	while (i < size)
+	str = (unsigned char *)addr;
+	while (i < 16 && i < size - 1)
 	{
-		if (!(str[i] >= 32 && str[i] <= 126))
-			write(1, ".", 1);
-		else
-		{
-			hex_char = (unsigned char)str[i];
-			ft_print_hex_char(hex_char);
-		}
+		ft_print_hex_char(str[i]);
+		if (i % 2 == 1)
+			write(1, " ", 1);
+		i++;
+	}
+	while (i < 16)
+	{
+		write(1, "   ", 3);
 		i++;
 	}
 }
@@ -79,22 +84,18 @@ void	ft_print_hex_char(unsigned char c)
 void	ft_print_str_printable_content(void *addr, unsigned int size)
 {
 	unsigned int	i;
-	char		*str;
-	char		c;
+	unsigned char	*str;
 
 	i = 0;
-	str = (char *)addr;
-	while (i < size - 1)
+	str = (unsigned char *)addr;
+	while (i < 16 && i < size - 1)
 	{
-		c = str[i];
-		if (c >= 32 && c <= 126)
+		if (str[i] >= 32 && str[i] <= 126)
 		{
-			write(1, &c, 1);
+			write(1, &str[i], 1);
 		}
 		else
 			write(1, ".", 1);
 		i++;
-		if (i % 16 == 0)
-			write(1, "\n", 1);
 	}
 }
