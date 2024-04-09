@@ -6,16 +6,41 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 21:21:55 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/09 15:49:59 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/09 17:17:47 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr_hex(char *str, unsigned int size);
 void	ft_print_hex_char(unsigned char c);
 
 void	*ft_print_memory(void *addr, unsigned int size)
+{
+	unsigned int	i;
+	char *str = (char *)addr;
+	char	c;
+
+	i = 0;
+	while(i < size - 1)
+	{
+		c = str[i];
+		if (c >= 32 && c <= 126)
+		{
+			write(1, &c, 1);
+		}
+		else
+			write(1, ".", 1);
+		i++;
+		if (i % 16 == 0)
+			write(1, "\n", 1);
+	}
+	return (addr);
+}
+
+//void	ft_putstr_hex(char *str, unsigned int size);
+//void	ft_print_hex_char(unsigned char c);
+
+/*void	*ft_print_memory(void *addr, unsigned int size)
 {
 	char	*str;
 
@@ -45,7 +70,7 @@ void	ft_putstr_hex(char *str, unsigned int size)
 		j++;
 		write(1, " ", 1);
 	}
-}
+}*/
 
 void	ft_print_hex_char(unsigned char c)
 {
