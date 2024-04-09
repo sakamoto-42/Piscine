@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 21:21:55 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/09 18:32:35 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/09 21:19:26 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	ft_print_str_printable_content(void *addr, unsigned int size);
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
+	unsigned int offset = 0;
+
 	if (size != 0)
 	{
 		ft_print_hex_addr_first_char(addr);
