@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 13:00:35 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/11 21:05:25 by sakamoto-42      ###   ########.fr       */
+/*   Created: 2024/03/24 17:39:54 by sakamoto-42       #+#    #+#             */
+/*   Updated: 2024/03/27 19:58:41 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <unistd.h>
 
-char	*ft_strstr(char *str, char *to_find)
+void	ft_putstr(char *str)
 {
-	unsigned int	i;
-	unsigned int	j;
+	int	i;
 
-	if (to_find[0] == '\0')
-		return str;
-	
 	i = 0;
 	while (str[i] != '\0')
-	{
-		j = 0;
-			while (str[i + j] == to_find[j] && to_find[j] != '\0')
-				j++;
-			if (to_find[j] == '\0')
-					return &str[i];
-			i++;
-	}
-	return (NULL);
+		i++;
+	write(1, str, i);
 }

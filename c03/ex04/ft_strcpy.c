@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 13:00:35 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/11 21:05:25 by sakamoto-42      ###   ########.fr       */
+/*   Created: 2024/03/26 20:37:15 by sakamoto-42       #+#    #+#             */
+/*   Updated: 2024/03/27 20:46:03 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strcpy(char *dest, char *src)
 {
-	unsigned int	i;
-	unsigned int	j;
+	int	i;
 
-	if (to_find[0] == '\0')
-		return str;
-	
 	i = 0;
-	while (str[i] != '\0')
+	while (src[i] != '\0')
 	{
-		j = 0;
-			while (str[i + j] == to_find[j] && to_find[j] != '\0')
-				j++;
-			if (to_find[j] == '\0')
-					return &str[i];
-			i++;
+		dest[i] = src[i];
+		i++;
 	}
-	return (NULL);
+	dest[i] = '\0';
+	return (dest);
 }
