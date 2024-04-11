@@ -1,33 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 12:44:56 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/11 19:00:30 by sakamoto-42      ###   ########.fr       */
+/*   Created: 2024/03/10 21:13:14 by sakamoto-42       #+#    #+#             */
+/*   Updated: 2024/03/19 20:49:36 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	unsigned int	i;
-	int				cmp;
-	unsigned char	s1_char;
-	unsigned char	s2_char;
+#include <unistd.h>
 
-	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
+void	ft_write_numbers(int n);
+void	ft_write_number(int n);
+
+void	ft_putnbr(int n)
+{
+	if (n == -2147483648)
 	{
-		i++;
+		write(1, "-2147483648", 11);
+		return ;
 	}
-	if (s1[i] != s2[i])
+	if (n < 0)
 	{
-		s1_char = (unsigned char)s1[i];
-		s2_char = (unsigned char)s2[i];
-		cmp = s1_char - s2_char;
-		return (cmp);
+		write(1, "-", 1);
+		n = -n;
 	}
-	return (0);
+	ft_write_numbers(n);
+}
+
+void	ft_write_numbers(int n)
+{
+	if (n >= 10)
+		ft_write_numbers(n / 10);
+	ft_write_number(n % 10);
+}
+
+void	ft_write_number(int n)
+{
+	char	c;
+
+	c = n + '0';
+	write(1, &c, 1);
 }
