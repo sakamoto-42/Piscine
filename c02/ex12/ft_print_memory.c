@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 21:21:55 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/10 16:19:42 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/11 12:11:16 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,9 @@ void	ft_print_str_hexa_content(void *addr, unsigned int size)
 	}
 	while (i < 16)
 	{
-		write(1, "   ", 3);
+		write(1, "  ", 2);
+		if (i % 2 == 1)
+			write(1, " ", 1);
 		i++;
 	}
 }
