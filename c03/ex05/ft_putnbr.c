@@ -1,31 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/11 21:37:31 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/11 21:50:14 by sakamoto-42      ###   ########.fr       */
+/*   Created: 2024/03/10 21:13:14 by sakamoto-42       #+#    #+#             */
+/*   Updated: 2024/03/19 20:49:36 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int nb)
-{
-	unsigned int	i;
-	unsigned int	dest_size;
+#include <unistd.h>
 
-	i = 0;
-	while (dest[i] != '\0')
-		i++;
-	dest_size = i;
-	i = 0;
-	while (i < nb && src[i] != '\0')
+void	ft_write_numbers(int n);
+void	ft_write_number(int n);
+
+void	ft_putnbr(int n)
+{
+	if (n == -2147483648)
 	{
-			dest[dest_size] = src[i];
-			dest_size++;
-			i++;
+		write(1, "-2147483648", 11);
+		return ;
 	}
-	dest[dest_size] = '\0';
-	return (dest_size + i);
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		n = -n;
+	}
+	ft_write_numbers(n);
+}
+
+void	ft_write_numbers(int n)
+{
+	if (n >= 10)
+		ft_write_numbers(n / 10);
+	ft_write_number(n % 10);
+}
+
+void	ft_write_number(int n)
+{
+	char	c;
+
+	c = n + '0';
+	write(1, &c, 1);
 }
