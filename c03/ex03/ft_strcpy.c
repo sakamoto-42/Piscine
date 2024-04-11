@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 12:57:40 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/11 20:24:51 by sakamoto-42      ###   ########.fr       */
+/*   Created: 2024/03/26 20:37:15 by sakamoto-42       #+#    #+#             */
+/*   Updated: 2024/03/27 20:46:03 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+char	*ft_strcpy(char *dest, char *src)
 {
-	unsigned int	i;
-	unsigned int	dest_size;
+	int	i;
 
 	i = 0;
-	while (dest[i] != '\0')
-		i++;
-	dest_size = i;
-	i = 0;
-	while (i < nb)
+	while (src[i] != '\0')
 	{
-			dest[dest_size] = src[i];
-			dest_size++;
-			i++;
+		dest[i] = src[i];
+		i++;
 	}
-	dest[dest_size] = '\0';
+	dest[i] = '\0';
 	return (dest);
 }
