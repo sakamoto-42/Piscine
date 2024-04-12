@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 13:28:33 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/12 12:08:21 by sakamoto-42      ###   ########.fr       */
+/*   Created: 2024/03/26 20:37:15 by sakamoto-42       #+#    #+#             */
+/*   Updated: 2024/03/27 20:46:03 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+char	*ft_strcpy(char *dest, char *src)
 {
-	unsigned int	len;
+	int	i;
 
-	len = 0;
-	while (*str != '\0')
+	i = 0;
+	while (src[i] != '\0')
 	{
-		str++;
-		len++;
+		dest[i] = src[i];
+		i++;
 	}
-	return (len);
+	dest[i] = '\0';
+	return (dest);
 }

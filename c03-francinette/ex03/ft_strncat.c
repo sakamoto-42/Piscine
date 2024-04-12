@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 13:28:33 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/12 12:08:21 by sakamoto-42      ###   ########.fr       */
+/*   Created: 2024/04/10 12:57:40 by sakamoto-42       #+#    #+#             */
+/*   Updated: 2024/04/12 09:59:45 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	unsigned int	len;
+	unsigned int	i;
+	unsigned int	dest_size;
 
-	len = 0;
-	while (*str != '\0')
+	i = 0;
+	while (dest[i] != '\0')
+		i++;
+	dest_size = i;
+	i = 0;
+	while (i < nb)
 	{
-		str++;
-		len++;
+		dest[dest_size] = src[i];
+		dest_size++;
+		i++;
 	}
-	return (len);
+	dest[dest_size] = '\0';
+	return (dest);
 }

@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 13:28:33 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/12 12:08:21 by sakamoto-42      ###   ########.fr       */
+/*   Created: 2024/04/10 13:00:35 by sakamoto-42       #+#    #+#             */
+/*   Updated: 2024/04/12 09:32:40 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	unsigned int	len;
+#include <stddef.h>
 
-	len = 0;
-	while (*str != '\0')
+char	*ft_strstr(char *str, char *to_find)
+{
+	unsigned int	i;
+	unsigned int	j;
+
+	if (to_find[0] == '\0')
+		return (str);
+	i = 0;
+	while (str[i] != '\0')
 	{
-		str++;
-		len++;
+		j = 0;
+		while (str[i + j] == to_find[j] && to_find[j] != '\0')
+			j++;
+		if (to_find[j] == '\0')
+			return (&str[i]);
+		i++;
 	}
-	return (len);
+	return (NULL);
 }
