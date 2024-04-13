@@ -6,28 +6,35 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:36:14 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/12 20:04:01 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/13 10:25:23 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(char *str)
 {
 	int	i;
+	int	minus_count;
 	int	sign;
 	int	result;
 
 	i = 0;
+	minus_count = 0;
 	sign = 1;
 	result = 0;
+
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)	
-			i++;
-	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			sign = -1;
+			minus_count++;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	if (minus_count % 2 == 0)
+		sign = 1;
+	else
+		sign = -1;
+	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i] - '0');
 		i++;
