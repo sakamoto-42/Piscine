@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:38:05 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/15 19:14:13 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/15 19:25:56 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ void	ft_putnbr_base(int nbr, char *base)
 	error = ft_check_base_error(base, base_length);
 	if (error)
 		return ;
+	if (nbr < 0)
+	{
+		write(1, "-", 1);
+		nbr = -nbr;
+	}
 	ft_extract_last_nbr(nbr, base_length, base);
 }
 
