@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:38:05 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/15 19:25:56 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/15 20:19:59 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,16 @@ void	ft_putnbr_base(int nbr, char *base)
 		nbr = -nbr;
 	}
 	ft_extract_last_nbr(nbr, base_length, base);
+}
+
+int	ft_base_len(char *base)
+{
+	int	i;
+
+	i = 0;
+	while (base[i] != '\0')
+		i++;
+	return (i);
 }
 
 int	ft_check_base_error(char *base, int base_len)
@@ -61,16 +71,6 @@ int	ft_check_base_error(char *base, int base_len)
 		i++;
 	}
 	return (0);
-}
-
-int	ft_base_len(char *base)
-{
-	int	i;
-
-	i = 0;
-	while (base[i] != '\0')
-		i++;
-	return (i);
 }
 
 void	ft_extract_last_nbr(int n, int base_len, char *base)
