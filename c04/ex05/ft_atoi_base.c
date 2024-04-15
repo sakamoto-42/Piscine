@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:40:32 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/15 20:39:31 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/15 20:41:35 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int	ft_atoi(char *str)
 void	ft_extract_last_nbr(int n, int base_len, char *base)
 {
 	if (n > base_len)
-		ft_extract_last_nbr(n * / base_len, base_len, base);
+		ft_extract_last_nbr(n / base_len, base_len, base);
 	ft_convert_nbr_to_base(n % base_len, base);
 }
 
