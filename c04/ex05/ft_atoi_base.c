@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:40:32 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/15 20:41:35 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/15 22:34:08 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 int		ft_base_len(char *base);
 int		ft_check_base_error(char *base, int base_len);
-int		ft_atoi(char *str);
-void	ft_extract_last_nbr(int n, int base_len, char *base);
-void	ft_convert_nbr_to_base(int n, char *base);
+int		ft_atoi_str_base_to_dec(char *str, int base_len, char *base);
+int		ft_char_base_to_dec(char c, int base_len, char *base);
 
-void	ft_atoi_base(char *str, char *base)
+int	ft_atoi_base(char *str, char *base)
 {
 	int	base_length;
 	int	error;
@@ -27,14 +26,9 @@ void	ft_atoi_base(char *str, char *base)
 	base_length = ft_base_len(base);
 	error = ft_check_base_error(base, base_length);
 	if (error)
-		return ;
-	nbr = ft_atoi(str);	
-	if (nbr < 0)
-	{
-		write(1, "-", 1);
-		nbr = -nbr;
-	}
-	ft_extract_last_nbr(nbr, base_length, base);
+		return (0);
+	nbr = ft_atoi_str_base_to_dec(str, base_length, base);
+	return (nbr);
 }
 
 int	ft_base_len(char *base)
@@ -42,7 +36,7 @@ int	ft_base_len(char *base)
 	int	i;
 
 	i = 0;
-	while(base[i] != '\0')
+	while (base[i] != '\0')
 		i++;
 	return (i);
 }
@@ -55,7 +49,7 @@ int	ft_check_base_error(char *base, int base_len)
 	if (base_len == 0 || base_len == 1)
 		return (1);
 	i = 0;
-	while(i < base_len)
+	while (i < base_len)
 	{
 		if (base[i] == '+' || base[i] == '-')
 			return (1);
@@ -76,50 +70,49 @@ int	ft_check_base_error(char *base, int base_len)
 	return (0);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi_str_base_to_dec(char *str, int base_len, char *base)
 {
 	int	i;
 	int	minus_count;
 	int	sign;
+	int	nbr;
 	int	n;
 
 	i = 0;
 	minus_count = 0;
 	sign = 1;
-	n = 0;
-
+	nbr = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
-	while(str[i] == '-' || str[i] == '+')
+	while (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
 			minus_count++;
 		i++;
 	}
-	if (minus_count % 2 == 0)
+	if (minus_count % 2 != 0)
 		sign = 1;
 	else
 		sign = -1;
-	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
+	while (str[i] != '\0')
 	{
-		n = n * 10 + (str[i] - '0');
+		n = ft_char_base_to_dec(str[i], base_len, base);
+		nbr = nbr * base_len + n;
 		i++;
 	}
-	n = n * sign;
-	return (n);
+	return (nbr * sign);
 }
 
-void	ft_extract_last_nbr(int n, int base_len, char *base)
+int	ft_char_base_to_dec(char c, int base_len, char *base)
 {
-	if (n > base_len)
-		ft_extract_last_nbr(n / base_len, base_len, base);
-	ft_convert_nbr_to_base(n % base_len, base);
-}
+	int	i;
 
-void	ft_convert_nbr_to_base(int n, char *base)
-{
-	char	c;
-
-	c = base[n];
-	write(1, &c, 1);
+	i = 0;
+	while (i < base_len)
+	{
+		if (c == base[i])
+			return (i);
+		i++;
+	}
+	return (-1);
 }
