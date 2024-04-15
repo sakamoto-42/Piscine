@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:38:05 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/15 18:30:42 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/15 18:38:29 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		ft_base_len(char *base)
 {
 	int	i;
 
+	i = 0;
 	while (base[i] != '\0')
 		i++;
 	return (i);
