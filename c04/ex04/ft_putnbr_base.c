@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:38:05 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/16 14:28:19 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/16 14:40:49 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_convert_nbr_to_base(long int n, char *base);
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	long int 	long_nbr;
+	long int	long_nbr;
 	long int	base_length;
 	int			error;
 
@@ -33,8 +33,6 @@ void	ft_putnbr_base(int nbr, char *base)
 		write(1, "-", 1);
 		long_nbr = -long_nbr;
 	}
-
-
 	ft_extract_last_nbr(long_nbr, base_length, base);
 }
 
