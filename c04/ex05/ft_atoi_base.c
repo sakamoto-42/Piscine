@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:40:32 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/15 22:34:08 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/16 08:58:07 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,11 @@ int	ft_check_base_error(char *base, int base_len)
 int	ft_atoi_str_base_to_dec(char *str, int base_len, char *base)
 {
 	int	i;
-	int	minus_count;
 	int	sign;
 	int	nbr;
 	int	n;
 
 	i = 0;
-	minus_count = 0;
 	sign = 1;
 	nbr = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
@@ -87,13 +85,9 @@ int	ft_atoi_str_base_to_dec(char *str, int base_len, char *base)
 	while (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			minus_count++;
+			sign = -sign;
 		i++;
 	}
-	if (minus_count % 2 != 0)
-		sign = 1;
-	else
-		sign = -1;
 	while (str[i] != '\0')
 	{
 		n = ft_char_base_to_dec(str[i], base_len, base);
