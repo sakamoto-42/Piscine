@@ -6,19 +6,17 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:36:14 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/13 10:25:23 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/16 09:00:01 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(char *str)
 {
 	int	i;
-	int	minus_count;
 	int	sign;
 	int	result;
 
 	i = 0;
-	minus_count = 0;
 	sign = 1;
 	result = 0;
 
@@ -27,13 +25,9 @@ int	ft_atoi(char *str)
 	while (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			minus_count++;
-		i++;
+			sign = -sign;
+	i++;
 	}
-	if (minus_count % 2 == 0)
-		sign = 1;
-	else
-		sign = -1;
 	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i] - '0');
