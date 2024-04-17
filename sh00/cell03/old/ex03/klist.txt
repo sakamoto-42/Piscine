@@ -1,0 +1,6 @@
+Ticket cache: FILE:/tmp/krb5cc_0
+Default principal: root@UBUNTU_REALM
+
+Valid starting       Expires              Service principal
+25/02/2024 16:42:55  26/02/2024 02:42:55  krbtgt/UBUNTU_REALM@UBUNTU_REALM
+	renew until 26/02/2024 16:42:50

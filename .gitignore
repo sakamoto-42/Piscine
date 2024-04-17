@@ -7,6 +7,7 @@ main.c
 eval/
 output
 *.txt
+!sh00/cell03/old/ex03/klist.txt
 c01/**/ft_putnbr.c
 c02/**/ft_putnbr.c
 c02/**/ft_putstr.c
