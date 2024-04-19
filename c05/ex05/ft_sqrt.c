@@ -6,14 +6,12 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:04:24 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/19 16:00:31 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/19 16:20:42 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_putnbr.h"
-
 int		ft_slice_nb(int nb, int *rest, int *square, int *found);
-void	ft_search_max_square(int nb, int *square);
+void	ft_search_first_square(int nb, int *square);
 void	ft_search_square(int n, int dec, int *rest, int *square);
 
 int	ft_sqrt(int nb)
@@ -27,7 +25,7 @@ int	ft_sqrt(int nb)
 	rest = 0;
 	if (nb < 100)
 	{
-		ft_search_max_square(nb, &square);
+		ft_search_first_square(nb, &square);
 		if (square * square == nb)
 			return (square);
 		return (0);
@@ -45,7 +43,7 @@ int	ft_slice_nb(int nb, int *rest, int *square, int	*perfect)
 
 	if (nb % 100 == nb)
 	{
-		ft_search_max_square(nb, square);
+		ft_search_first_square(nb, square);
 		*rest = nb - *square * *square;
 		return (nb);
 	}
@@ -58,7 +56,7 @@ int	ft_slice_nb(int nb, int *rest, int *square, int	*perfect)
 	return (slice);
 }
 
-void	ft_search_max_square(int nb, int *square)
+void	ft_search_first_square(int nb, int *square)
 {
 	int	i;
 
