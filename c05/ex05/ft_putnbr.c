@@ -1,40 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 14:04:24 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/19 11:43:43 by sakamoto-42      ###   ########.fr       */
+/*   Created: 2024/04/10 13:34:06 by sakamoto-42       #+#    #+#             */
+/*   Updated: 2024/04/13 10:28:51 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "ft_putnbr.h"
 
-int	ft_slice_nb(int nb);
+void	ft_write_numbers(int nb);
+void	ft_write_number(int nb);
 
-int	ft_sqrt(int nb)
+void	ft_putnbr(int nb)
 {
-	ft_slice_nb(nb);
-	return (nb);
+	if (nb == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return ;
+	}
+	if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb = -nb;
+	}
+	ft_write_numbers(nb);
 }
 
-int	ft_slice_nb(int nb)
+void	ft_write_numbers(int nb)
 {
-	int	slice;
+	if (nb >= 10)
+		ft_write_numbers(nb / 10);
+	ft_write_number(nb % 10);
+}
 
-	if (nb % 100 == nb)
-	{
-		ft_putnbr(nb);
-		write(1, "\n", 1);
-		return (nb);
-	}
+void	ft_write_number(int nb)
+{
+	char	c;
 
-	slice = nb % 100;
-	ft_slice_nb(nb / 100);
-	ft_putnbr(slice);
-	write(1, "\n", 1);
-	return (slice);
+	c = nb + '0';
+	write(1, &c, 1);
 }
