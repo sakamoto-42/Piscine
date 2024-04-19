@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:04:24 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/19 15:35:20 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/19 15:49:31 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	ft_search_square(int n, int dec, int *rest, int *square);
 
 int	ft_sqrt(int nb)
 {
-	int	found;
+	int	perfect;
 	int	square;
 	int	rest;
 
-	found = 0;
+	perfect = 0;
 	square = 0;
 	rest = 0;
 	if (nb < 100)
@@ -34,13 +34,13 @@ int	ft_sqrt(int nb)
 			return (square);
 		return (0);
 	}
-	ft_slice_nb(nb, &rest, &square, &found);
-	if (found)
+	ft_slice_nb(nb, &rest, &square, &perfect);
+	if (perfect)
 		return (square);
 	return (0);
 }
 
-int	ft_slice_nb(int nb, int *rest, int *square, int	*found)
+int	ft_slice_nb(int nb, int *rest, int *square, int	*perfect)
 {
 	int	slice;
 	int	res;
@@ -52,11 +52,11 @@ int	ft_slice_nb(int nb, int *rest, int *square, int	*found)
 		return (nb);
 	}
 	slice = nb % 100;
-	ft_slice_nb(nb / 100, rest, square, found);
+	ft_slice_nb(nb / 100, rest, square, perfect);
 	res = *rest * 100 + slice;
 	ft_search_square(res, *square * 2, rest, square);
 	if (*rest == 0)
-		*found = 1;
+		*perfect = 1;
 	return (slice);
 }
 
