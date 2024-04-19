@@ -6,13 +6,11 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:04:24 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/19 15:49:31 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/19 16:00:31 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "ft_putnbr.h"
-#include <stdio.h>
 
 int		ft_slice_nb(int nb, int *rest, int *square, int *found);
 void	ft_search_max_square(int nb, int *square);
