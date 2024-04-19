@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:05:56 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/19 17:53:13 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/19 17:58:25 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	ft_is_prime(int nb)
 	sqrt = ft_sqrt(nb);
 	if (nb <= 1)
 		return (0);
+	if (nb == 2)
+		return (1);
 	is_prime = ft_recursive_is_prime(nb, sqrt, 2);
 	return (is_prime);
 }
