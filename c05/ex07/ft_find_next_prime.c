@@ -6,23 +6,24 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:07:34 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/20 09:20:05 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/20 09:31:30 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_prime(int next);
+int	ft_is_prime(int nb);
 int	ft_sqrt(int nb);
 int	ft_recursive_is_prime(int n, int sqrt, int i);
 
 int	ft_find_next_prime(int nb)
 {
 	int	is_prime;
+	int	next_prime;
 
 	is_prime = ft_is_prime(nb);
 	if (is_prime)
 		return (nb);
-	ft_find_next_prime(nb + 1);
-		return (0);
+	next_prime = ft_find_next_prime(nb + 1);
+	return (next_prime);
 }
 
 int	ft_is_prime(int nb)
