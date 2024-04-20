@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:09:44 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/20 11:18:41 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/20 11:42:24 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,26 +51,31 @@ int	ft_ten_queens_puzzle(void)
 		while (board[column][line] == 0 && column <= 9)
 			column++;
 		// if line without queen
-		if (column == 9)
+		if (column - 1 == 9)
 		{
+			//write(1, "1", 1);
 			column = 0;
 			line = 0;
 			// check column
 			while (board[column][line] == 0 && line <= 9)
 				line++;
 			// if column without queen
-			if (line == 9)
+			if (line - 1 == 9)
 			{
+				//write(1, "2", 1);
 				column = 0;
 				line = 0;
 				// check diagonal
-				while (board[column][line] == 0 || (column <= 9 || line <= 9))
+				while (board[column][line] == 0 && (column <= 9 || line <= 9))
 				{
 					column++;
 					line++;
 				}
-				if (column == 9 || line == 9)
+				if (column - 1 == 9 || line - 1 == 9)
+				{
+					//write(1, "3", 1);
 					board[column_to_check][line_to_check] = 1;
+				}
 			}
 		}
 	}
@@ -82,11 +87,10 @@ int	ft_ten_queens_puzzle(void)
 		column = 0;
 		while (column <= 9)
 		{
-			if (board[column][line] == 0)
-				c = 'O';
+			if (board[column][line] == 1)
+				write(1, "X", 1);
 			else
-				c = 'X';
-			write(1, &c, 1);
+				write(1, "O", 1);
 			column++;
 		}
 		write(1, "\n", 1);
