@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 16:46:26 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/21 15:52:20 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/21 16:10:34 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	ft_place_queens(int board[10][10], int cell_row, int *ptr_poss_nb)
 		(*ptr_poss_nb)++;
 		return (0);
 	}
-
 	col = 0;
 	while (col <= 9)
 	{
@@ -75,62 +74,22 @@ int	ft_place_queens(int board[10][10], int cell_row, int *ptr_poss_nb)
 
 int	ft_can_place_queen(int board[10][10], int cell_row, int cell_col)
 {
-	int	r;
-	int	c;
+	int	i;
 
 	if (cell_col > 9)
 		return (0);
-	r = cell_row;
-	c = cell_col;
-	while (r >= 0)
+	i = 1;
+	while (i <= cell_row)
 	{
-		if (board[r][c] == 1)
+		if (board[cell_row - i][cell_col] == 1)
 			return (0);
-		r--;
-	}
-	r = cell_row;
-	c = cell_col;
-	while (r >= 0 && c >= 0)
-	{
-		if (board[r][c] == 1)
+		if (cell_col - i >= 0 && board[cell_row - i][cell_col - i] == 1)
 			return (0);
-		r--;
-		c--;
-	}
-	r = cell_row;
-	c = cell_col;
-	while (r >= 0 && c <= 9)
-	{
-		if (board[r][c] == 1)
+		if (cell_col + i <= 9 && board[cell_row - i][cell_col + i] == 1)
 			return (0);
-		r--;
-		c++;
+		i++;
 	}
 	return (1);
-}
-
-void	ft_print_board(int board[10][10])
-{
-	int		row;
-	int		col;
-	char	c;
-
-	row = 0;
-	while (row <= 9)
-	{
-		col = 0;
-		while (col <= 9)
-		{
-			if (board[row][col] == 1)
-				c = 'X';
-			else
-				c = 'O';
-			write(1, &c, 1);
-			col++;
-		}
-		write(1, "\n", 1);
-		row++;
-	}
 }
 
 void	ft_print_placements(int board[10][10])
