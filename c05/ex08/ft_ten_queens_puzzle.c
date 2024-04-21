@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 16:46:26 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/21 15:11:21 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/21 15:38:41 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,6 @@ int	main()
 
 	ft_init_board(board);
 	ft_place_queens(board, 0);
-	ft_print_board(board);
-	write(1, "\n", 1);
-	ft_print_placements(board);
-	write(1, "\n", 1);
 	return (0);
 }
 
@@ -54,7 +50,15 @@ int	ft_place_queens(int board[10][10], int cell_row)
 	int	col;
 
 	if (cell_row > 9)
-		return (1);
+	{
+		ft_print_placements(board);
+		write(1, "\n", 1);
+		write(1, "\n", 1);
+		ft_print_board(board);
+		write(1, "\n", 1);
+		write(1, "\n", 1);
+		return (0);
+	}
 
 	col = 0;
 	while (col <= 9)
