@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 16:46:26 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/21 13:29:06 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/21 15:11:21 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_init_board(int board[10][10]);
 int		ft_place_queens(int board[10][10], int cell_row);
-int		ft_place_queen(int board[10][10], int cell_row, int cell_col);
 int		ft_can_place_queen(int board[10][10], int row, int col);
 void	ft_print_board(int board[10][10]);
+void	ft_print_placements(int board[10][10]);
 
 int	main()
 {
@@ -25,6 +25,9 @@ int	main()
 	ft_init_board(board);
 	ft_place_queens(board, 0);
 	ft_print_board(board);
+	write(1, "\n", 1);
+	ft_print_placements(board);
+	write(1, "\n", 1);
 	return (0);
 }
 
@@ -39,7 +42,7 @@ void	ft_init_board(int board[10][10])
 		col = 0;
 		while (col <= 9)
 		{
-			board[col][row] = 0;
+			board[row][col] = 0;
 			col++;
 		}
 		row++;
@@ -48,24 +51,24 @@ void	ft_init_board(int board[10][10])
 
 int	ft_place_queens(int board[10][10], int cell_row)
 {
+	int	col;
+
 	if (cell_row > 9)
 		return (1);
-	if (!(ft_place_queen(board, cell_row, 0)))
-		return (0);
-	return (ft_place_queens(board, cell_row + 1));
-}
 
-int	ft_place_queen(int board[10][10], int cell_row, int cell_col)
-{
-	if (cell_col > 9)
-		return (0);
-	if (ft_can_place_queen(board, cell_row, cell_col))
+	col = 0;
+	while (col <= 9)
 	{
-		board[cell_row][cell_col] = 1;
-		return (1);
+		if (ft_can_place_queen(board, cell_row, col))
+		{
+			board[cell_row][col] = 1;
+			if (ft_place_queens(board, cell_row + 1))
+				return (1);
+			board[cell_row][col] = 0;
+		}
+		col++;
 	}
-	else
-		return (ft_place_queen(board, cell_row, cell_col + 1));
+	return (0);
 }
 
 int	ft_can_place_queen(int board[10][10], int cell_row, int cell_col)
@@ -106,24 +109,47 @@ int	ft_can_place_queen(int board[10][10], int cell_row, int cell_col)
 
 void	ft_print_board(int board[10][10])
 {
-	int		line;
-	int		column;
+	int		row;
+	int		col;
 	char	c;
 
-	line = 0;
-	while (line <= 9)
+	row = 0;
+	while (row <= 9)
 	{
-		column = 0;
-		while (column <= 9)
+		col = 0;
+		while (col <= 9)
 		{
-			if (board[column][line] == 1)
+			if (board[row][col] == 1)
 				c = 'X';
 			else
 				c = 'O';
-			write(2, &c, 1);
-			column++;
+			write(1, &c, 1);
+			col++;
 		}
 		write(1, "\n", 1);
-		line++;
+		row++;
+	}
+}
+
+void	ft_print_placements(int board[10][10])
+{
+	int		row;
+	int		col;
+	char	c;
+
+	row = 0;
+	while (row <= 9)
+	{
+		col = 0;
+		while (col <= 9)
+		{
+			if (board[row][col] == 1)
+			{
+				c = col + '0';
+				write(1, &c, 1);
+			}
+			col++;
+		}
+		row++;
 	}
 }
