@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 14:17:52 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/21 17:53:27 by sakamoto-42      ###   ########.fr       */
+/*   Created: 2024/03/26 20:37:15 by sakamoto-42       #+#    #+#             */
+/*   Updated: 2024/03/27 20:46:03 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int	main(int argc, char **argv)
+char	*ft_strcpy(char *dest, char *src)
 {
-	char	*str;
+	int	i;
 
-	(void) argc;
-	str = argv[0];
-	while (*str != '\0')
-		write(1, str++, 1);
-	return (0);
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

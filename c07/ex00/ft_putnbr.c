@@ -1,24 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 14:17:52 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/21 17:53:27 by sakamoto-42      ###   ########.fr       */
+/*   Created: 2024/04/10 13:34:06 by sakamoto-42       #+#    #+#             */
+/*   Updated: 2024/04/13 10:28:51 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(int argc, char **argv)
-{
-	char	*str;
+void	ft_write_numbers(int nb);
+void	ft_write_number(int nb);
 
-	(void) argc;
-	str = argv[0];
-	while (*str != '\0')
-		write(1, str++, 1);
-	return (0);
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return ;
+	}
+	if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb = -nb;
+	}
+	ft_write_numbers(nb);
+}
+
+void	ft_write_numbers(int nb)
+{
+	if (nb >= 10)
+		ft_write_numbers(nb / 10);
+	ft_write_number(nb % 10);
+}
+
+void	ft_write_number(int nb)
+{
+	char	c;
+
+	c = nb + '0';
+	write(1, &c, 1);
 }
