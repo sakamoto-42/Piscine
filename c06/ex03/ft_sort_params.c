@@ -6,20 +6,20 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:19:05 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/22 08:54:21 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/22 09:15:06 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
 int		ft_compare_argv(char *str1, char *str2);
+void	ft_swap_argv(char **argv, int i, int j);
 void	ft_write_argv(char *str);
 
 int	main(int argc, char **argv)
 {
-	int	i;
-	int	j;
-	char	**temp;
+	int		i;
+	int		j;
 
 	i = 1;
 	while (i < argc - 1)
@@ -27,12 +27,8 @@ int	main(int argc, char **argv)
 		j = i + 1;
 		while (j < argc)
 		{
-			if (ft_compare_argv(argv[i], argv[j]))
-			{
-				temp = argv[i];
-				*argv[i] = argv[j];
-				*argv[j] = temp;
-			}
+			if (ft_compare_argv(argv[i], argv[j]) > 0)
+				ft_swap_argv(argv, i, j);
 			j++;
 		}
 		i++;
@@ -50,17 +46,23 @@ int	ft_compare_argv(char *str1, char *str2)
 {
 	while (*str1 != '\0' && *str2 != '\0')
 	{
-		if (str1 > str2)
-		{
+		if (*str1 > *str2)
 			return (1);
-		}
-		else
-		{
-			str1++;
-			str2++;
-		}
+		else if (*str1 < *str2)
+			return (-1);
+		str1++;
+		str2++;
 	}
-	return (0);
+	return (*str1 - *str2);
+}
+
+void	ft_swap_argv(char **argv, int i, int j)
+{
+	char	*temp;
+
+	temp = argv[i];
+	argv[i] = argv[j];
+	argv[j] = temp;
 }
 
 void	ft_write_argv(char *str)
