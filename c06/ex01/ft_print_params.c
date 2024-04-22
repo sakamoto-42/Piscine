@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:18:30 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/22 08:14:29 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/22 08:39:51 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	while (i < argc)
 	{
 		ft_write_argv(argv[i]);
