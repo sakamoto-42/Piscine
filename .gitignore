@@ -15,3 +15,8 @@ ft_putstr.c
 !c04/ex01/ft_putstr.c
 ft_strcpy.c
 !c02/ex00/ft_strcpy.c
+!c08/ex00/ft.h
+!c08/ex01/ft_boolean.h
+!c08/ex02/ft_abs.h
+!c08/ex03/ft_point.h
+!c12/*/ft_list.h
