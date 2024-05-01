@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:19:05 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/22 09:15:06 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/04/25 19:53:51 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,8 @@ void	ft_swap_argv(char **argv, int i, int j)
 void	ft_write_argv(char *str)
 {
 	while (*str != '\0')
+	{
 		write(1, str++, 1);
+		write(1, "\n", 1);
+	}
 }
