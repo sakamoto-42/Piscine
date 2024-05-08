@@ -12,7 +12,6 @@
 
 #include <unistd.h>
 
-void	ft_handle_non_printable_char(char c);
 void	ft_print_hex_char(unsigned char c);
 
 void	ft_putstr_non_printable(char *str)
