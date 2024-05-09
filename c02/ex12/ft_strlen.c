@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/26 21:23:05 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/05/09 14:58:03 by sakamoto-42      ###   ########.fr       */
+/*   Created: 2024/03/24 17:41:53 by sakamoto-42       #+#    #+#             */
+/*   Updated: 2024/03/30 17:13:04 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print_memory.h"
-#include "ft_strcpy.h"
-#include "ft_strlen.h"
-
-int	main(void)
+int	ft_strlen(char *str)
 {
-	char		str[92];
-	unsigned int	size;
+	int	i;
 
-	ft_strcpy(str, "Bonjour les aminches\t\n\tc  est fou\ttout\tce qu on peut faire avec\t\n\tprint_memory\n\n\n\tlol\nlol\n ");
-	size = ft_strlen(str) + 1;
-	ft_print_memory(str, size);
-	return (0);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
