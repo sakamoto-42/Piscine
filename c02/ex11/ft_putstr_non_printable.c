@@ -16,7 +16,7 @@ void	ft_print_hex_char(unsigned char c);
 
 void	ft_putstr_non_printable(char *str)
 {
-	int				i;
+	int		i;
 	unsigned char	hex_char;
 
 	i = 0;

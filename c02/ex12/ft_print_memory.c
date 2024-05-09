@@ -6,42 +6,44 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 21:21:55 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/12 10:25:14 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/05/09 14:17:45 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_hex_addr_first_char(void *addr);
-void	ft_print_str_hexa_content(void *addr, unsigned int size);
+void	ft_print_hex_addr_first_char(void *current_addr);
+void	ft_print_str_hexa_content(void *current_addr, unsigned int current_size);
 void	ft_print_hex_char(unsigned char c);
-void	ft_print_str_printable_content(void *addr, unsigned int size);
+void	ft_print_str_printable_content(void *current_addr, unsigned int current_size);
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
 	unsigned int	offset;
+	unsigned char	*ptr;
 
 	offset = 0;
+	ptr = (unsigned char *)addr;
 	while (offset < size)
 	{
-		ft_print_hex_addr_first_char(addr + offset);
-  write(1, ": ", 2);
-		ft_print_str_hexa_content(addr + offset, size - offset);
+		ft_print_hex_addr_first_char(ptr + offset);
+  		write(1, ": ", 2);
+		ft_print_str_hexa_content(ptr + offset, size - offset);
 		write(1, " ", 1);
-		ft_print_str_printable_content(addr + offset, size - offset);
+		ft_print_str_printable_content(ptr + offset, size - offset);
 		write(1, "\n", 1);
 		offset += 16;
 	}
 	return (addr);
 }
 
-void	ft_print_hex_addr_first_char(void *addr)
+void	ft_print_hex_addr_first_char(void *current_addr)
 {
 	unsigned long	addr_first_char;
 	unsigned char	current_byte;
-	int				shift_value;
+	int		shift_value;
 
-	addr_first_char = (unsigned long)addr;
+	addr_first_char = (unsigned long)current_addr;
 	shift_value = (sizeof(addr_first_char) * 8) - 8;
 	while (shift_value >= 0)
 	{
@@ -51,14 +53,14 @@ void	ft_print_hex_addr_first_char(void *addr)
 	}
 }
 
-void	ft_print_str_hexa_content(void *addr, unsigned int size)
+void	ft_print_str_hexa_content(void *current_addr, unsigned int current_size)
 {
 	unsigned int	i;
 	unsigned char	*str;
 
 	i = 0;
-	str = (unsigned char *)addr;
-	while (i < 16 && i < size - 1)
+	str = (unsigned char *)current_addr;
+	while (i < 16 && i < current_size)
 	{
 		ft_print_hex_char(str[i]);
 		if (i % 2 == 1)
@@ -83,14 +85,14 @@ void	ft_print_hex_char(unsigned char c)
 	write(1, &hex[c % 16], 1);
 }
 
-void	ft_print_str_printable_content(void *addr, unsigned int size)
+void	ft_print_str_printable_content(void *current_addr, unsigned int current_size)
 {
 	unsigned int	i;
 	unsigned char	*str;
 
 	i = 0;
-	str = (unsigned char *)addr;
-	while (i < 16 && i < size - 1)
+	str = (unsigned char *)current_addr;
+	while (i < 16 && i < current_size)
 	{
 		if (str[i] >= 32 && str[i] <= 126)
 		{
