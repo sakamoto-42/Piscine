@@ -22,9 +22,10 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	unsigned int	offset;
 
 	offset = 0;
-	while (offset < size - 1)
+	while (offset < size)
 	{
 		ft_print_hex_addr_first_char(addr + offset);
+  write(1, ": ", 2);
 		ft_print_str_hexa_content(addr + offset, size - offset);
 		write(1, " ", 1);
 		ft_print_str_printable_content(addr + offset, size - offset);
@@ -48,7 +49,6 @@ void	ft_print_hex_addr_first_char(void *addr)
 		ft_print_hex_char(current_byte);
 		shift_value -= 8;
 	}
-	write(1, ": ", 2);
 }
 
 void	ft_print_str_hexa_content(void *addr, unsigned int size)
