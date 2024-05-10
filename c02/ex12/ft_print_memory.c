@@ -6,16 +6,16 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 21:21:55 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/05/09 19:44:12 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/05/10 13:09:29 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
 void	ft_print_hex_addr_first_char(void *current_addr);
-void	ft_print_str_hexa_content(void *current_addr, unsigned int current_size);
+void	ft_print_str_hexa_content(unsigned char *current_addr, unsigned int current_size);
 void	ft_print_hex_char(unsigned char c);
-void	ft_print_str_printable_content(void *current_addr, unsigned int current_size);
+void	ft_print_str_printable_content(unsigned char *current_addr, unsigned int current_size);
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
@@ -53,16 +53,14 @@ void	ft_print_hex_addr_first_char(void *current_addr)
 	}
 }
 
-void	ft_print_str_hexa_content(void *current_addr, unsigned int current_size)
+void	ft_print_str_hexa_content(unsigned char *current_addr, unsigned int current_size)
 {
 	unsigned int	i;
-	unsigned char	*str;
 
 	i = 0;
-	str = (unsigned char *)current_addr;
 	while (i < 16 && i < current_size)
 	{
-		ft_print_hex_char(str[i]);
+		ft_print_hex_char(current_addr[i]);
 		if (i % 2 == 1)
 			write(1, " ", 1);
 		i++;
@@ -85,18 +83,16 @@ void	ft_print_hex_char(unsigned char c)
 	write(1, &hex[c % 16], 1);
 }
 
-void	ft_print_str_printable_content(void *current_addr, unsigned int current_size)
+void	ft_print_str_printable_content(unsigned char *current_addr, unsigned int current_size)
 {
 	unsigned int	i;
-	unsigned char	*str;
 
 	i = 0;
-	str = (unsigned char *)current_addr;
 	while (i < 16 && i < current_size)
 	{
-		if (str[i] >= 32 && str[i] <= 126)
+		if (str[i] >= 32 && current_addr[i] <= 126)
 		{
-			write(1, &str[i], 1);
+			write(1, &current_addr[i], 1);
 		}
 		else
 			write(1, ".", 1);
