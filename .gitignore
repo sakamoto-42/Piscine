@@ -14,6 +14,8 @@ ft_putnbr.c
 ft_putstr.c
 !c01/ex05/ft_putstr.c
 !c04/ex01/ft_putstr.c
+ft_strlen.c
+!c01/ex06/ft_strlen.c
 ft_strcpy.c
 !c02/ex00/ft_strcpy.c
 !c08/ex00/ft.h
