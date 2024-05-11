@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 21:21:55 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/05/11 07:24:27 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/05/11 08:11:35 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	ft_print_str_printable_content(unsigned char *current_addr, unsigned int cu
 	i = 0;
 	while (i < 16 && i < current_size)
 	{
-		if (str[i] >= 32 && current_addr[i] <= 126)
+		if (current_addr[i] >= 32 && current_addr[i] <= 126)
 		{
 			write(1, &current_addr[i], 1);
 		}
