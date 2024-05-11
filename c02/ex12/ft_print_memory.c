@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 21:21:55 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/05/11 06:59:19 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/05/11 07:24:27 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,12 @@ void	ft_print_str_hexa_content(unsigned char *current_addr, unsigned int current
 	unsigned int	i;
 
 	i = 0;
-	while (i < 16 && i < current_size)
-	{
-		ft_print_hex_char(current_addr[i]);
-		if (i % 2 == 1)
-			write(1, " ", 1);
-		i++;
-	}
 	while (i < 16)
 	{
-		write(1, "  ", 2);
+		if (i < current_size)
+			ft_print_hex_char(current_addr[i]);
+		else
+			write(1, "  ", 2);
 		if (i % 2 == 1)
 			write(1, " ", 1);
 		i++;
