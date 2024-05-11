@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 21:21:55 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/05/10 13:23:44 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/05/11 06:59:19 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_print_hex_addr_first_char(void *current_addr)
 	shift_value = (sizeof(addr_first_char) * 8) - 8;
 	while (shift_value >= 0)
 	{
-		current_byte = (addr_first_char >> shift_value) & 0xFF;
+		current_byte = (addr_first_char >> shift_value) & (0xFF);
 		ft_print_hex_char(current_byte);
 		shift_value -= 8;
 	}
