@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:41:18 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/05/12 16:28:48 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/05/12 16:31:59 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	main(void)
 	ft_strcpy(src, " World !");
 	nb = sizeof(dest);
 	res = ft_strlcat(dest, src, nb);
-	res = nb;
 	ft_putnbr(res);
 	return (0);
 }
