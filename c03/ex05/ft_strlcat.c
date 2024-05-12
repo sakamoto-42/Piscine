@@ -6,11 +6,9 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:37:31 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/05/12 17:53:12 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/05/12 17:54:34 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-unsigned int	ft_strlen(char *str);
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int nb)
 {
@@ -37,14 +35,4 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int nb)
 	}
 	*dest = '\0';
 	return (dest_len + src_len);
-}
-
-unsigned int	ft_strlen(char *str)
-{
-	unsigned int	len;
-
-	len = 0;
-	while (str[len] != '\0')
-		len++;
-	return (len);
 }
