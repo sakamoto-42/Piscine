@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:41:18 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/05/12 16:31:59 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/05/12 16:40:04 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 int	main(void)
 {
-	char			dest[6];
-	char			src[14];
+	char			dest[14];
+	char			src[9];
 	unsigned int	nb;
 	unsigned int	res;
 
