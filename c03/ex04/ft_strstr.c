@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:00:35 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/05/12 13:49:51 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/05/12 14:23:34 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ char	*ft_strstr(char *str, char *to_find)
 	char	*str_start;
 	char	*to_find_start;
 
-	to_find_start = to_find;
 	if (*to_find == '\0')
 		return (str);
+	to_find_start = to_find;
 	while (*str != '\0')
 	{
 		str_start = str;
