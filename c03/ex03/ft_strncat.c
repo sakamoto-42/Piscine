@@ -6,26 +6,26 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 12:57:40 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/12 10:02:16 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/05/12 13:39:14 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
+	char			*dest_start;
 	unsigned int	i;
-	unsigned int	dest_size;
 
+	dest_start = dest;
+	while (*dest != '\0')
+		dest++;
 	i = 0;
-	while (dest[i] != '\0')
-		i++;
-	dest_size = i;
-	i = 0;
-	while (i < nb)
+	while ((i < nb) && (*src != '\0'))
 	{
-		dest[dest_size] = src[i];
-		dest_size++;
+		*dest = *src;
+		dest++;
+		src++;
 		i++;
 	}
-	dest[dest_size] = '\0';
-	return (dest);
+	*dest = '\0';
+	return (dest_start);
 }
