@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:30:40 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/12 12:21:19 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/05/20 09:28:58 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr(char *str)
 {
-	unsigned char	c;
+	char	c;
 
 	while (*str != '\0')
 	{
