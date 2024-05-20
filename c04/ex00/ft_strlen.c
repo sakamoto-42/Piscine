@@ -6,13 +6,13 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:28:33 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/12 12:08:21 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/05/20 08:36:17 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strlen(char *str)
 {
-	unsigned int	len;
+	int	len;
 
 	len = 0;
 	while (*str != '\0')
