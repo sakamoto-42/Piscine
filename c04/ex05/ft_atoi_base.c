@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:40:32 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/16 08:58:07 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/05/21 22:19:08 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,80 +33,78 @@ int	ft_atoi_base(char *str, char *base)
 
 int	ft_base_len(char *base)
 {
-	int	i;
+	char	*ptr;
 
-	i = 0;
-	while (base[i] != '\0')
-		i++;
-	return (i);
+	ptr = base;
+	while (*ptr != '\0')
+		ptr++;
+	return (ptr - base);
 }
 
 int	ft_check_base_error(char *base, int base_len)
 {
-	int	i;
-	int	j;
+	char	*ptr1;
+	char	*ptr2;
 
 	if (base_len == 0 || base_len == 1)
 		return (1);
-	i = 0;
-	while (i < base_len)
+	ptr1 = base;
+	while (ptr1 < base + base_len)
 	{
-		if (base[i] == '+' || base[i] == '-')
+		if (*ptr1 == '+' || *ptr1 == '-')
 			return (1);
-		i++;
+		ptr1++;
 	}
-	i = 0;
-	while (i < base_len - 1)
+	ptr1 = base;
+	while (ptr1 < base + base_len - 1)
 	{
-		j = i + 1;
-		while (j < base_len)
+		ptr2 = ptr1 + 1;
+		while (ptr2 < base + base_len)
 		{
-			if (base[i] == base[j])
+			if (*ptr1 == *ptr2)
 				return (1);
-			j++;
+			ptr2++;
 		}
-		i++;
+		ptr1++;
 	}
 	return (0);
 }
 
 int	ft_atoi_str_base_to_dec(char *str, int base_len, char *base)
 {
-	int	i;
-	int	sign;
-	int	nbr;
-	int	n;
+	int		sign;
+	int		nbr;
+	int		n;
 
-	i = 0;
 	sign = 1;
 	nbr = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	while (str[i] == '-' || str[i] == '+')
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	while (*str == '-' || *str == '+')
 	{
-		if (str[i] == '-')
+		if (*str == '-')
 			sign = -sign;
-		i++;
+		str++;
 	}
-	while (str[i] != '\0')
+	while (*str != '\0')
 	{
-		n = ft_char_base_to_dec(str[i], base_len, base);
+		n = ft_char_base_to_dec(*str, base_len, base);
 		nbr = nbr * base_len + n;
-		i++;
+		str++;
 	}
 	return (nbr * sign);
 }
 
 int	ft_char_base_to_dec(char c, int base_len, char *base)
 {
-	int	i;
+	char	*ptr;
 
-	i = 0;
-	while (i < base_len)
+	ptr = base;
+	while (ptr < base + base_len)
 	{
-		if (c == base[i])
-			return (i);
-		i++;
+		if (c == *ptr)
+			return (ptr - base);
+		ptr++;
 	}
 	return (-1);
 }
