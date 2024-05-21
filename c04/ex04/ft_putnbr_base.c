@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:38:05 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/16 14:40:49 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/05/21 21:38:10 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,39 +38,39 @@ void	ft_putnbr_base(int nbr, char *base)
 
 int	ft_base_len(char *base)
 {
-	int	i;
-
-	i = 0;
-	while (base[i] != '\0')
-		i++;
-	return (i);
+	char	*ptr;
+	
+	ptr = base;
+	while (*ptr != '\0')
+		ptr++;
+	return (ptr - base);
 }
 
 int	ft_check_base_error(char *base, long int base_len)
 {
-	int	i;
-	int	j;
+	char	*ptr1;
+	char	*ptr2;
 
 	if (base_len == 0 || base_len == 1)
 		return (1);
-	i = 0;
-	while (i < base_len)
+	ptr1 = base;
+	while (ptr1 < base + base_len)
 	{
-		if (base[i] == '+' || base[i] == '-')
+		if (*ptr1 == '+' || *ptr1 == '-')
 			return (1);
-		i++;
+		ptr1++;
 	}
-	i = 0;
-	while (i < base_len - 1)
+	ptr1 = base;
+	while (ptr1 < base + base_len - 1)
 	{
-		j = i + 1;
-		while (j < base_len)
+		ptr2 = ptr1 + 1;
+		while (ptr2 < base + base_len)
 		{
-			if (base[i] == base[j])
+			if (*ptr1 == *ptr2)
 				return (1);
-			j++;
+			ptr2++;
 		}
-		i++;
+		ptr1++;
 	}
 	return (0);
 }
@@ -86,6 +86,6 @@ void	ft_convert_nbr_to_base(long int n, char *base)
 {
 	char	c;
 
-	c = base[n];
+	c = *(base + n);
 	write(1, &c, 1);
 }
