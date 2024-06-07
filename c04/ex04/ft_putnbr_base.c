@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:38:05 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/05/21 21:56:09 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/07 11:10:02 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_convert_nbr_to_base(long int n, char *base);
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	long int	long_nbr;
 	long int	base_length;
+	long int	long_nbr;
 	int			error;
 
 	base_length = ft_base_len(base);
