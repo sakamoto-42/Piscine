@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:40:32 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/05/21 22:19:08 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/09 19:52:20 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,6 @@ int	ft_check_base_error(char *base, int base_len)
 	if (base_len == 0 || base_len == 1)
 		return (1);
 	ptr1 = base;
-	while (ptr1 < base + base_len)
-	{
-		if (*ptr1 == '+' || *ptr1 == '-')
-			return (1);
-		ptr1++;
-	}
-	ptr1 = base;
 	while (ptr1 < base + base_len - 1)
 	{
 		ptr2 = ptr1 + 1;
@@ -65,6 +58,13 @@ int	ft_check_base_error(char *base, int base_len)
 				return (1);
 			ptr2++;
 		}
+		ptr1++;
+	}
+	ptr1 = base;
+	while (ptr1 < base + base_len)
+	{
+		if (*ptr1 == '+' || *ptr1 == '-')
+			return (1);
 		ptr1++;
 	}
 	return (0);
