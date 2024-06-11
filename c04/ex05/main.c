@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:41:26 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/05/21 22:19:35 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/11 10:25:33 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 int	main(void)
 {
-	char	str[20];
-	char	base[20];
+	char	str[9];
+	char	base[9];
 	int		nbr;
 
 	ft_strcpy(str, "poneyvif");
