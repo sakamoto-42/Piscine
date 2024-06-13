@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:22:46 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/22 20:39:32 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/13 19:58:31 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #include "ft_putstr.h"
 #include <unistd.h>
 #include "ft_strdup.h"
-#include "ft_putnbr.h"
+#include <stdlib.h>
+#include <errno.h>
 
 int	main(void)
 {
@@ -25,7 +26,21 @@ int	main(void)
 	ft_putstr(src);
 	write(1, "\n", 1);
 	dest = ft_strdup(src);
-	ft_putstr(dest);
-	write(1, "\n", 1);
+	if (dest != NULL)
+	{
+		ft_putstr(dest);
+		free(dest);
+		write(1, "\n", 1);
+	}
+	else
+	{
+		write(1, "Error duplicating string :\n", 28);
+		if (errno == ENOMEM)
+			write(1,
+				"Insufficient memory available to allocate duplicate string.\n",
+				60);
+		else
+			write(1, "An unknow error occured.\n", 25);
+	}
 	return (0);
 }

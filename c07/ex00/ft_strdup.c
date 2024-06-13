@@ -6,11 +6,12 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:21:59 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/22 20:39:00 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/13 19:17:23 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <errno.h>
 
 char	*ft_strdup(char *src)
 {
@@ -33,5 +34,6 @@ char	*ft_strdup(char *src)
 		}
 		return (dest);
 	}
+	errno = ENOMEM;
 	return (NULL);
 }
