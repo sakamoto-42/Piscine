@@ -22,7 +22,7 @@ char	*ft_strdup(char *src)
 	i = 0;
 	while (src[i] != '\0')
 		i++;
-	length = i + 1;
+	length = i;
 	dest = malloc(sizeof(*src) * length);
 	if (dest)
 	{
@@ -32,6 +32,7 @@ char	*ft_strdup(char *src)
 			dest[i] = src[i];
 			i++;
 		}
+  dest[i] = '\0';
 		return (dest);
 	}
 	errno = ENOMEM;
