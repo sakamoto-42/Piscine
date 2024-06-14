@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:23:49 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/22 22:14:54 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/14 10:38:53 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	*ft_range(int min, int max)
 	if (min >= max)
 		return (NULL);
 	length = max - min;
-	tab = malloc(sizeof(*tab) * length);
+	tab = (int *)malloc(length * sizeof(*tab));
 	if (tab)
 	{
 		i = 0;
