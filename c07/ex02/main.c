@@ -6,13 +6,14 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:27:06 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/06/14 14:03:21 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/14 14:10:54 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ultimate_range.h"
 #include "ft_putnbr.h"
 #include <unistd.h>
+#include <stdlib.h>
 
 int	main(void)
 {
