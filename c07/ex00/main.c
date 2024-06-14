@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:22:46 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/06/14 09:55:33 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/14 09:58:41 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	main(void)
 	}
 	ft_putstr(dest);
 	free(dest);
+	dest = NULL;
 	write(1, "\n", 1);
 	return (0);
 }
