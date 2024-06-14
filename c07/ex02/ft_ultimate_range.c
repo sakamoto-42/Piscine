@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:25:58 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/06/14 14:04:26 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/14 16:04:09 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_ultimate_range(int **range, int min, int max)
 {
 	int	length;
-	int	i;
+	int	*current;
 
 	if (min >= max)
 	{
@@ -24,16 +24,14 @@ int	ft_ultimate_range(int **range, int min, int max)
 	}
 	length = max - min;
 	*range = (int *)malloc(length * sizeof(**range));
-	if (*range)
+	if (*range == NULL)
+		return (-1);
+	current = *range;
+	while (min < max)
 	{
-		i = 0;
-		while (min < max)
-		{
-			(*range)[i] = min;
-			min++;
-			i++;
-		}
-		return (length);
+		*current = min;
+		min++;
+		current++;
 	}
-	return (-1);
+	return (length);
 }
