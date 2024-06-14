@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:22:46 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/06/13 19:58:31 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/14 09:55:33 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,7 @@ int	main(void)
 	ft_putstr(src);
 	write(1, "\n", 1);
 	dest = ft_strdup(src);
-	if (dest != NULL)
-	{
-		ft_putstr(dest);
-		free(dest);
-		write(1, "\n", 1);
-	}
-	else
+	if (dest == NULL)
 	{
 		write(1, "Error duplicating string :\n", 28);
 		if (errno == ENOMEM)
@@ -41,6 +35,10 @@ int	main(void)
 				60);
 		else
 			write(1, "An unknow error occured.\n", 25);
+		return (1);
 	}
+	ft_putstr(dest);
+	free(dest);
+	write(1, "\n", 1);
 	return (0);
 }
