@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:27:06 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/06/14 14:10:54 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/14 14:14:52 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(void)
 	max = 42;
 	range_length = ft_ultimate_range(&range, min, max);
 	i = 0;
-	if (range_length != -1 || range_length != -0 || range == NULL)
+	if (range_length == -1 || range_length == -0 || range == NULL)
 		return (1);
 	while (i < range_length)
 	{
