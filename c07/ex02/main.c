@@ -20,22 +20,20 @@ int	main(void)
 	int	min;
 	int	max;
 	int	i;
-	int	length;
 	int	range_length;
 
 	range = NULL;
 	min = 12;
 	max = 42;
 	range_length = ft_ultimate_range(&range, min, max);
-	length = max - min;
 	i = 0;
-	while (i < length)
+	while (i < range_length)
 	{
 		ft_putnbr(range[i]);
 		write(1, "\n", 1);
 		i++;
 	}
-	write(1, "\n", 1);
-	ft_putnbr(range_length);
+	if (range)
+		free(range);
 	return (0);
 }
