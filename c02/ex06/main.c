@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 17:51:14 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/10 12:35:35 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/16 15:44:37 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,23 @@
 #include "ft_putnbr.h"
 #include <unistd.h>
 
+void	ft_test_non_printable(int min, int max);
+
 int	main(void)
 {
 	int		is_printable;
-	char	str1[32];
-	char	str2[2];
-	char	str3[3];
-	int		i;
 
-	i = 1;
-	while (i < 32)
-	{
-		str1[i - 1] = i;
-		i++;
-	}
-	str1[i] = '\0';
-	str2[0] = 127;
-	str2[1] = '\0';
-	str3[0] = 31;
-	str3[1] = 32;
-	str3[2] = '\0';
+	ft_test_non_printable(1, 32);
+	ft_test_non_printable(127, 127);
+	ft_test_non_printable(31, 32);
 	is_printable = ft_str_is_printable("abcdefghijklmnopqrstuvwxyz");
 	ft_putnbr(is_printable);
 	write(1, "\n", 1);
 	is_printable = ft_str_is_printable("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	ft_putnbr(is_printable);
 	write(1, "\n", 1);
-	is_printable = ft_str_is_printable("aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ");
+	is_printable = ft_str_is_printable(
+			"aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ");
 	ft_putnbr(is_printable);
 	write(1, "\n", 1);
 	is_printable = ft_str_is_printable("0123456789");
@@ -52,14 +42,26 @@ int	main(void)
 	is_printable = ft_str_is_printable("A0B1C2D3E4F5G6H7I8J9");
 	ft_putnbr(is_printable);
 	write(1, "\n", 1);
-	is_printable = ft_str_is_printable(str1);
-	ft_putnbr(is_printable);
-	write(1, "\n", 1);
-	is_printable = ft_str_is_printable(str2);
-	ft_putnbr(is_printable);
-	write(1, "\n", 1);
-	is_printable = ft_str_is_printable(str3);
-	ft_putnbr(is_printable);
-	write(1, "\n", 1);
 	return (0);
+}
+
+void	ft_test_non_printable(int min, int max)
+{
+	char	str[50];
+	int		i;
+	int		j;
+	int		is_printable;
+
+	i = 0;
+	j = min;
+	while (j <= max)
+	{
+		str[i] = j;
+		i++;
+		j++;
+	}
+	str[i] = '\0';
+	is_printable = ft_str_is_printable(str);
+	ft_putnbr(is_printable);
+	write(1, "\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 21:18:20 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/10 12:29:53 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/16 14:29:06 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_print_hex_char(unsigned char c);
 
 void	ft_putstr_non_printable(char *str)
 {
-	int		i;
+	int				i;
 	unsigned char	hex_char;
 
 	i = 0;

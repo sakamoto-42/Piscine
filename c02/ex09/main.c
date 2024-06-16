@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 21:12:42 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/10 12:37:12 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/16 15:46:34 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	main(void)
 {
 	char	str[62];
 
-	ft_strcpy(str, "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un");
+	ft_strcpy(str,
+		"salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un");
 	ft_putstr(str);
 	write(1, "\n", 1);
 	ft_putstr(ft_strcapitalize(str));

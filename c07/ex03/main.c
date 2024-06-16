@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:30:44 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/23 20:45:02 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/16 15:54:46 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	main(void)
 	char	*sep;
 
 	size = 3;
-
 	ft_strjoin(size, strs, sep);
 	return (0);
 }

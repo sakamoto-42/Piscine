@@ -6,11 +6,11 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:54:36 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/10 14:55:07 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/16 15:54:11 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_show_tab(struct s_stock_str *par)
+/*void	ft_show_tab(struct s_stock_str *par)
 {
 
-}
+}*/

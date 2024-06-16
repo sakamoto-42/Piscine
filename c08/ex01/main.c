@@ -6,11 +6,11 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:46:17 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/10 14:49:08 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/16 15:55:37 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_boolean.h"
+/*#include "ft_boolean.h"
 
 void	ft_putstr(char *str)
 {
@@ -31,4 +31,4 @@ int	main(int argc, char **argv)
 	else
 		ft_putstr(ODD_MSG);
 	return (SUCCESS);
-}
+}*/

@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 17:51:14 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/01 21:46:27 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/16 15:47:32 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	main(void)
 	is_uppercase = ft_str_is_uppercase("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	ft_putnbr(is_uppercase);
 	write(1, "\n", 1);
-	is_uppercase = ft_str_is_uppercase("aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ");
+	is_uppercase = ft_str_is_uppercase(
+			"aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ");
 	ft_putnbr(is_uppercase);
 	write(1, "\n", 1);
 	is_uppercase = ft_str_is_uppercase("0123456789");

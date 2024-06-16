@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 17:51:14 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/01 18:01:55 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/16 15:30:08 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	main(void)
 	is_alpha = ft_str_is_alpha("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	ft_putnbr(is_alpha);
 	write(1, "\n", 1);
-	is_alpha = ft_str_is_alpha("aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ");
+	is_alpha = ft_str_is_alpha(
+			"aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ");
 	ft_putnbr(is_alpha);
 	write(1, "\n", 1);
 	is_alpha = ft_str_is_alpha("0123456789");
