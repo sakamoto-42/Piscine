@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:31:29 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/12 12:19:34 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/16 18:13:34 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 int	main(void)
 {
-	char	str[14];
+	char	src[14];
 
 	ft_strcpy(src, "Hello World !");
-	ft_putstr(str);
+	ft_putstr(src);
 	return (0);
 }

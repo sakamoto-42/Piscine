@@ -6,11 +6,11 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:29:07 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/10 14:30:36 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/16 17:26:25 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strjoin(int size, char **strs, char *sep)
+/*char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	return (sep);
-}
+}*/

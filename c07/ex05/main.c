@@ -6,11 +6,11 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:37:34 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/04/10 14:38:32 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/16 17:28:11 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_split.h"
+/*#include "ft_split.h"
 
 int	main(void)
 {
@@ -19,4 +19,4 @@ int	main(void)
 
 	ft_split(str, charset);
 	return (0);
-}
+}*/

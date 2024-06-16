@@ -6,11 +6,11 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:30:44 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/06/16 15:54:46 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/16 17:26:34 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_strjoin.h"
+/*#include "ft_strjoin.h"
 
 int	main(void)
 {
@@ -21,4 +21,4 @@ int	main(void)
 	size = 3;
 	ft_strjoin(size, strs, sep);
 	return (0);
-}
+}*/

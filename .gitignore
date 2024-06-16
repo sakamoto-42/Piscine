@@ -7,6 +7,7 @@ sh01/cell05/ex05/
 a.out
 eval/
 output
+Makefile
 *.txt
 !sh00/cell03/old/ex03/klist.txt
 ft_putnbr.c
