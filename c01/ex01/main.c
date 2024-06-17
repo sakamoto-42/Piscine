@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 21:17:11 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/06/17 08:46:31 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/17 08:55:05 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(void)
 	*******ptr = &n;
 	ft_ultimate_ft(&ptr);
 	ft_putnbr(********ptr);
+	free(*******ptr);
 	free(******ptr);
 	free(*****ptr);
 	free(****ptr);
