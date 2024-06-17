@@ -8,6 +8,7 @@ a.out
 eval/
 output
 Makefile
+42-EXAM/
 *.txt
 !/EXAM/EXAM*/*/subject/*.txt
 !sh00/cell03/old/ex03/klist.txt
