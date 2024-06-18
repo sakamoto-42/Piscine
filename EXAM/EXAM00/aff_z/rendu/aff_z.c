@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	{
 		str = argv[1];
 		i = 0;
-		while (str[i] != '\0' && found == 0)
+		while (str[i] != '\0')
 		{
 			if (str[i] == 'z')
 			{
