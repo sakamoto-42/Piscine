@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 15:00:56 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/06/17 15:35:44 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/18 21:26:05 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,28 @@
 int	main(int argc, char **argv)
 {
 	char	*str;
-	int		i;
 	char	c;
 
 	if (argc - 1 == 1)
 	{
 		str = argv[1];
-		i = 0;
-		while (str[i] != '\0')
+		while (*str != '\0')
 		{
-			if (str[i] == 'a')
+			if (*str == 'a')
 			{
-				c = str[i];
+				c = *str;
 				write(1, &c, 1);
 				write(1, "\n", 1);
 				return (0);
 			}
-			i++;
+			str++;
 		}
+		write(1, "\n", 1);
 	}
- else
-	  write(1, "a", 1);
-	write(1, "\n", 1);
+	else
+	{
+		write(1, "a", 1);
+		write(1, "\n", 1);
+	}
 	return (0);
 }
