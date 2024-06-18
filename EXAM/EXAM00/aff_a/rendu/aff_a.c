@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	int		i;
 	char	c;
 
-	if (argc == 2)
+	if (argc - 1 == 1)
 	{
 		str = argv[1];
 		i = 0;
@@ -33,10 +33,9 @@ int	main(int argc, char **argv)
 			}
 			i++;
 		}
-		write(1, "\n", 1);
-		return (0);
 	}
-	write(1, "a", 1);
+ else
+	  write(1, "a", 1);
 	write(1, "\n", 1);
 	return (0);
 }
