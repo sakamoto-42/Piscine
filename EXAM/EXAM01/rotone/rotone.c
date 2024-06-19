@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   repeat_alpha.c                                     :+:      :+:    :+:   */
+/*   rotone.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/18 09:56:14 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/06/19 12:58:41 by sakamoto-42      ###   ########.fr       */
+/*   Created: 2024/06/18 14:43:47 by sakamoto-42       #+#    #+#             */
+/*   Updated: 2024/06/19 13:24:05 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,24 @@
 int	main(int argc, char **argv)
 {
 	char	*str;
-	int		i;
 	char	c;
+	int		alpha;
 
 	if (argc - 1 == 1)
 	{
 		str = argv[1];
 		while (*str != '\0')
 		{
-			i = 0;
+			alpha = 0;
 			if (*str >= 65 && *str <= 90)
-				i = *str - 65;
+				alpha = 65;
 			else if (*str >= 97 && *str <= 122)
-				i = *str - 97;
-			while (i >= 0)
-			{
+				alpha = 97;
+			if (alpha)
+				c = ((*str + 1 - alpha) % 26) + alpha;
+			else
 				c = *str;
-				write(1, &c, 1);
-				i--;
-			}
+			write(1, &c, 1);
 			str++;
 		}
 	}

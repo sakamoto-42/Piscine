@@ -6,11 +6,9 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 07:46:19 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/06/18 08:44:12 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/19 10:48:31 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 char	*ft_strcpy(char *s1, char *s2)
 {
