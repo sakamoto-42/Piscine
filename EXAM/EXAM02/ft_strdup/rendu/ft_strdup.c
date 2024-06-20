@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 14:48:20 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/06/20 15:34:42 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/06/20 16:10:58 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strdup(char *src)
 	i = 0;
 	while (src[i] != '\0')
 		i++;
-	dst = malloc(i + 1 * sizeof(*src));
+	dst = (char *)malloc((i + 1) * sizeof(*src));
 	if (!dst)
 	{
 		errno = ENOMEM;
