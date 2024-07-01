@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   print_bits.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/01 13:53:45 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/07/01 19:04:50 by sakamoto-42      ###   ########.fr       */
+/*   Created: 2024/07/01 08:41:05 by sakamoto-42       #+#    #+#             */
+/*   Updated: 2024/07/01 13:11:27 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "print_bits.h"
 #include <unistd.h>
-#include "reverse_bits.h"
+#include <stdio.h>
 
-int	main(void)
+void	print_bits(unsigned char octet)
 {
-	unsigned char	octet;
-	unsigned char	reversed_octet;
+	unsigned int	bit_val;
+	int				power;
+	int				i;
 
-	octet = 38;
-	print_bits(octet);
-	write(1, "\n", 1);
-	reversed_octet = reverse_bits(octet);
-	print_bits(reversed_octet);
-	write(1, "\n", 1);
-	return (0);
+	power = 7;
+	while (power >= 0)
+	{
+		bit_val = 1;
+		i = power;
+		while (i > 0)
+		{
+			bit_val *= 2;
+			i--;
+		}
+		if (bit_val <= octet)
+		{
+			write(1, "1", 1);
+			octet -= bit_val;
+		}
+		else
+			write(1, "0", 1);
+		power--;
+	}
 }
