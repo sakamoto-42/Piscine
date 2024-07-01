@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 17:42:39 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/06/30 22:23:42 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/07/01 07:47:54 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ char	*get_last_word(char *str)
 void	print_last_word(char *last_word)
 {
 	char	c;
+
 	while (*last_word != ' ' && *last_word != '\t' && *last_word != '\0')
 	{
 		c = *last_word;
