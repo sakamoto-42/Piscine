@@ -45,3 +45,7 @@ ft_strcpy.h
 !/EXAM/EXAM*/*/ft_strcpy.h
 !/EXAM/EXAM*/*/rendu/ft_strcpy.c
 !/EXAM/EXAM*/*/rendu/ft_strcpy.h
+print_bits.c
+print_bits.h
+!/EXAM/EXAM02/print_bits/rendu_print_bits.c
+!/EXAM/EXAM02/print_bits/rendu_print_bits.h
