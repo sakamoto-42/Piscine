@@ -6,7 +6,7 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 10:51:44 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/07/03 17:27:07 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/07/03 17:51:06 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int argc, char **argv)
 	{
 		str = argv[1];
 		epur_str(str);
+		write(1, "\n", 1);
 	}
 	else
 		write(1, "\n", 1);
@@ -52,5 +53,4 @@ void	epur_str(char *str)
 			is_new_word = 1;
 		str++;
 	}
-	write(1, "\n", 1);
 }
