@@ -6,12 +6,11 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 19:42:50 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/07/01 21:12:29 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/07/02 07:58:00 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 int	ft_check_unique_char(char *src_start, char *src, char c);
 
