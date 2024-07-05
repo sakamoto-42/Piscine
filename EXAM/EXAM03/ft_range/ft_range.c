@@ -6,12 +6,11 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 10:43:49 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/07/05 12:22:36 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/07/05 12:35:48 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 void	ft_set_step_n_elem(int start, int end, int *step, int *n_elem);
 
