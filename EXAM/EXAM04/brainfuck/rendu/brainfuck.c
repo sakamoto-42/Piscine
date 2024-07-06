@@ -6,18 +6,14 @@
 /*   By: sakamoto-42 <sakamoto-42@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 12:31:19 by sakamoto-42       #+#    #+#             */
-/*   Updated: 2024/07/06 15:35:18 by sakamoto-42      ###   ########.fr       */
+/*   Updated: 2024/07/06 16:30:29 by sakamoto-42      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
-
-void			brainfuck(char *code);
-unsigned char	*init_language(void);
-void			go_to_matching_bracket_left(char **code);
-void			go_to_matching_bracket_right(char **code);
+#include "brainfuck.h"
 
 int	main(int argc, char **argv)
 {
@@ -40,10 +36,11 @@ int	main(int argc, char **argv)
 
 void	brainfuck(char *code)
 {
+	unsigned char	*language;
 	unsigned char	*ptr;
-	char			c;
 
-	ptr = init_language();
+	language = init_language();
+	ptr = language;
 	while (*code != '\0')
 	{
 		if (*code == '>')
@@ -55,16 +52,14 @@ void	brainfuck(char *code)
 		else if (*code == '-')
 			(*ptr)--;
 		else if (*code == '.')
-		{
-			c = *ptr;
-			write(1, &c, 1);
-		}
+			write(1, &(*ptr), 1);
 		if (*code == '[' && *ptr == 0)
 			go_to_matching_bracket_left(&code);
 		else if (*code == ']' && *ptr != 0)
 			go_to_matching_bracket_right(&code);
 		code++;
 	}
+	free(language);
 }
 
 unsigned char	*init_language(void)
